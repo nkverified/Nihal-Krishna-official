@@ -1,22 +1,83 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Contact Form</title>
+    <style>
+        body {
+            font-family: 'Courier New', monospace;
+            background: linear-gradient(135deg, #020204, #111010, #090c19);
+            color: #00ffc3;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .contact-form {
+            background: #181b2c;
+            border: 2px solid #00ffc3;
+            border-radius: 10px;
+            padding: 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 0 20px #00ffc3;
+        }
+        .contact-form h2 {
+            text-align: center;
+            margin-bottom: 20px;
+            font-size: 26px;
+            color: #ff007f;
+        }
+        .contact-form label {
+            display: block;
+            margin-bottom: 5px;
+            font-size: 14px;
+            color: #00ffc3;
+        }
+        .contact-form input,
+        .contact-form textarea,
+        .contact-form button {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 2px solid #00ffc3;
+            border-radius: 5px;
+            background: #020204;
+            color: #00ffc3;
+            font-size: 14px;
+        }
+        .contact-form textarea {
+            height: 100px;
+        }
+        .contact-form button {
+            background: #ff007f;
+            color: #fff;
+            border: none;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+        .contact-form button:hover {
+            background: #00ffc3;
+            color: #020204;
+        }
+    </style>
 </head>
 <body>
-    <h2>Contact Us</h2>
-    <form action="mailto:example@example.com" method="POST" enctype="text/plain">
-        <label for="name">Name:</label><br>
-        <input type="text" id="name" name="name" required><br><br>
+    <form class="contact-form" action="mailto:nkverifiedyt@gmail.com" method="POST" enctype="text/plain">
+        <h2>Contact Us</h2>
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
 
-        <label for="email">Email:</label><br>
-        <input type="email" id="email" name="email" required><br><br>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
 
-        <label for="message">Message:</label><br>
-        <textarea id="message" name="message" required></textarea><br><br>
+        <label for="message">Message:</label>
+        <textarea id="message" name="message" required></textarea>
 
         <button type="submit">Send Message</button>
     </form>
