@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cyberpunk Link in Bio</title>
+  <style>
+    /* Basic Reset */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Orbitron', sans-serif; /* Futuristic font */
+      background: #0f0f1e; /* Dark cyberpunk background */
+      color: #00ffc6; /* Neon green text */
+      text-align: center;
+      padding: 20px;
+      overflow: hidden;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: 0 auto;
+      padding: 20px;
+      border-radius: 12px;
+      background: linear-gradient(145deg, #141432, #090912); /* Neon glowing card */
+      box-shadow: 0 4px 30px rgba(0, 255, 198, 0.5), inset 0 0 10px rgba(0, 255, 198, 0.3);
+    }
+
+    .profile-img {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      margin: 0 auto 20px;
+      border: 2px solid #00ffc6;
+      box-shadow: 0 0 15px #00ffc6;
+    }
+
+    .name {
+      font-size: 2rem;
+      color: #ff2bd7; /* Neon pink */
+      margin-bottom: 10px;
+      text-shadow: 0 0 8px #ff2bd7;
+    }
+
+    .bio {
+      font-size: 1rem;
+      color: #00ffc6;
+      margin-bottom: 20px;
+    }
+
+    .links a {
+      display: block;
+      text-decoration: none;
+      margin: 15px 0;
+      padding: 15px;
+      font-size: 1.1rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(90deg, #ff2bd7, #00ffc6);
+      border-radius: 10px;
+      box-shadow: 0 0 10px #00ffc6;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .links a:hover {
+      transform: scale(1.1);
+      box-shadow: 0 0 20px #ff2bd7, 0 0 30px #00ffc6;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .profile-img {
+        width: 90px;
+        height: 90px;
+      }
+
+      .name {
+        font-size: 1.5rem;
+      }
+
+      .bio {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Add Futuristic Glow */
+    @keyframes neonGlow {
+      0%, 100% {
+        text-shadow: 0 0 10px #00ffc6, 0 0 20px #00ffc6;
+      }
+      50% {
+        text-shadow: 0 0 20px #ff2bd7, 0 0 40px #ff2bd7;
+      }
+    }
+
+    .name {
+      animation: neonGlow 2s infinite;
+    }
+  </style>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+  <div class="container">
+    <img src="https://via.placeholder.com/120" alt="Profile Picture" class="profile-img">
+    <div class="name">CyberSec Pro</div>
+    <div class="bio">Secure the future. Protect the present. Join the mission!</div>
+    <div class="links">
+      <a href="https://example.com" target="_blank">Visit My Website</a>
+      <a href="https://instagram.com" target="_blank">Follow Me on Instagram</a>
+      <a href="https://t.me/yourtelegram" target="_blank">Join My Telegram</a>
+    </div>
+  </div>
+</body>
+</html>
