@@ -3,13 +3,14 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nihal Krishna - Coming Soon</title>
+  <title>Nihal Krishna - Cyberpunk Countdown</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <div class="countdown-container">
-    <h1>Nihal Krishna</h1>
-    <p>We're coming back stronger and better!</p>
+  <div class="cyberpunk-container">
+    <h1 class="glitch" data-text="Nihal Krishna">Nihal Krishna</h1>
+    <p class="subtitle">We're rebooting the system. Stay tuned!</p>
     <div class="countdown">
       <div class="time">
         <span id="days"></span>
@@ -28,6 +29,9 @@
         <span>Seconds</span>
       </div>
     </div>
+    <a href="https://www.instagram.com" target="_blank" class="instagram-link">
+      <i class="fab fa-instagram"></i> Follow us on Instagram
+    </a>
   </div>
   <script src="script.js"></script>
 </body>
@@ -42,31 +46,84 @@
 }
 
 body {
-  font-family: 'Arial', sans-serif;
+  font-family: 'Orbitron', sans-serif;
   background-color: #0a0a0a;
-  color: #fff;
+  color: #00ffcc;
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
   text-align: center;
+  overflow: hidden;
 }
 
-.countdown-container {
-  background-color: #1a1a1a;
+.cyberpunk-container {
+  background-color: #111;
   padding: 2rem;
   border-radius: 10px;
-  box-shadow: 0 0 20px rgba(0, 0, 0, 0.5);
+  border: 2px solid #00ffcc;
+  box-shadow: 0 0 20px rgba(0, 255, 204, 0.5);
+  position: relative;
 }
 
-h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
+h1.glitch {
+  font-size: 3rem;
+  position: relative;
+  color: #00ffcc;
+  animation: glitch 2.5s infinite;
 }
 
-p {
+h1.glitch::before,
+h1.glitch::after {
+  content: attr(data-text);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #ff00ff;
+  z-index: -1;
+}
+
+h1.glitch::before {
+  left: 2px;
+  animation: glitch-before 2s infinite;
+}
+
+h1.glitch::after {
+  left: -2px;
+  animation: glitch-after 1.5s infinite;
+}
+
+@keyframes glitch {
+  0% { transform: translate(0); }
+  20% { transform: translate(-2px, 2px); }
+  40% { transform: translate(-2px, -2px); }
+  60% { transform: translate(2px, 2px); }
+  80% { transform: translate(2px, -2px); }
+  100% { transform: translate(0); }
+}
+
+@keyframes glitch-before {
+  0% { clip-path: inset(0 0 0 0); }
+  25% { clip-path: inset(0 0 100% 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  75% { clip-path: inset(0 0 0 100%); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+@keyframes glitch-after {
+  0% { clip-path: inset(0 0 0 0); }
+  25% { clip-path: inset(0 0 50% 0); }
+  50% { clip-path: inset(0 0 0 0); }
+  75% { clip-path: inset(0 0 0 50%); }
+  100% { clip-path: inset(0 0 0 0); }
+}
+
+.subtitle {
   font-size: 1.2rem;
   margin-bottom: 2rem;
+  color: #ff00ff;
 }
 
 .countdown {
@@ -83,35 +140,43 @@ p {
   display: block;
   font-size: 2rem;
   font-weight: bold;
+  color: #00ffcc;
 }
 
 .time span:last-child {
   font-size: 1rem;
-  color: #ccc;
+  color: #ff00ff;
+}
+
+.instagram-link {
+  display: inline-block;
+  margin-top: 2rem;
+  color: #ff00ff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.instagram-link:hover {
+  color: #00ffcc;
+}
+
+.instagram-link i {
+  margin-right: 0.5rem;
 }
 
 @media (max-width: 600px) {
-  h1 {
+  h1.glitch {
     font-size: 2rem;
   }
 
-  p {
-    font-size: 1rem;
-  }
-
-  .time span {
-    font-size: 1.5rem;
-  }
-
-  .time span:last-child {
-    font-size: 0.8rem;
-  }
-}
+  .subtitle {
+    font-size
 
 </style>
 
-<script>
-// Set the date we're counting down to
+<script> 
+// Set the date we're counting down to (April 1, 2025)
 const countdownDate = new Date("April 1, 2025 00:00:00").getTime();
 
 // Update the countdown every 1 second
@@ -140,5 +205,4 @@ const countdownFunction = setInterval(() => {
     document.querySelector(".countdown").innerHTML = "<h2>We're Back!</h2>";
   }
 }, 1000);
-
 </script>
