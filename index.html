@@ -9,6 +9,96 @@
 </head>
 <body>
 
+    <style>
+        .ticker-container {
+            background: linear-gradient(45deg, #1a237e, #0d47a1);
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .ticker-content {
+            display: inline-block;
+            white-space: nowrap;
+            position: relative;
+            animation: ticker 15s linear infinite;
+            font-size: 1.2em;
+            font-weight: 500;
+            padding-left: 100%;
+        }
+
+        .ticker-content:hover {
+            animation-play-state: paused;
+        }
+
+        .ticker-container::before {
+            content: "📢 Latest News";
+            position: absolute;
+            left: 20px;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255,255,255,0.1);
+            padding: 8px 15px;
+            border-radius: 5px;
+            font-weight: bold;
+            z-index: 2;
+            backdrop-filter: blur(2px);
+            border: 1px solid rgba(255,255,255,0.2);
+        }
+
+        @keyframes ticker {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-100%);
+            }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .ticker-container {
+                border-radius: 0;
+            }
+            .ticker-container::before {
+                font-size: 0.8em;
+                padding: 5px 10px;
+            }
+            .ticker-content {
+                font-size: 1em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="ticker-container">
+        <div class="ticker-content">
+            🚀 Breaking News: Join us for the annual tech conference 2024 - Discover the future of AI and blockchain technology! Limited seats available.
+        </div>
+    </div>
+
+    <script>
+        // Add pause on hover functionality
+        const ticker = document.querySelector('.ticker-content');
+        
+        ticker.addEventListener('mouseenter', () => {
+            ticker.style.animationPlayState = 'paused';
+        });
+
+        ticker.addEventListener('mouseleave', () => {
+            ticker.style.animationPlayState = 'running';
+        });
+
+        // Optional: Make it infinite by duplicating content
+        const tickerContent = document.querySelector('.ticker-content');
+        tickerContent.innerHTML += tickerContent.innerHTML;
+    </script>
+</body>
+</html>
+
 <div id="score-frame"><a rel="nofollow" href="https://www.crictimes.org/cricket-scores">Live Cricket Scores</a></div><script type="text/javascript">var html = document.getElementById('score-frame');html.innerHTML = '<iframe src="https://cwidget.crictimes.org/?v=1.1" style="width:100%;min-height: 460px;" frameborder="0" scrolling="yes"></iframe>';</script>
 
 
