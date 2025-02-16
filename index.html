@@ -1,104 +1,202 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nihal Krishna - Coming back</title>
-  <link rel="stylesheet" href="styles.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-</head>
-<body>
-
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihal Krishna - Returning Soon</title>
     <style>
-        .ticker-container {
-            background: linear-gradient(45deg, #1a237e, #0d47a1);
-            color: white;
-            padding: 15px 0;
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #000;
+            font-family: 'Courier New', monospace;
+            color: #0f0;
+            overflow-x: hidden;
+        }
+
+        .container {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
             position: relative;
-            overflow: hidden;
-            border-radius: 8px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
         }
 
-        .ticker-content {
-            display: inline-block;
-            white-space: nowrap;
-            position: relative;
-            animation: ticker 15s linear infinite;
-            font-size: 1.2em;
-            font-weight: 500;
-            padding-left: 100%;
+        .matrix-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0.1;
+            z-index: -1;
         }
 
-        .ticker-content:hover {
-            animation-play-state: paused;
+        .title {
+            font-size: 4rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            text-shadow: 0 0 10px #0f0;
+            animation: glitch 2s infinite;
         }
 
-        .ticker-container::before {
-            content: "📢";
-            position: absolute;
-            left: 20px;
-            top: 50%;
-            transform: translateY(-50%);
-            background: rgba(255,255,255,0.1);
-            padding: 8px 15px;
+        .countdown {
+            display: flex;
+            gap: 2rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .countdown-item {
+            text-align: center;
+            padding: 1rem;
+            border: 2px solid #0f0;
             border-radius: 5px;
+            min-width: 150px;
+            animation: pulse 2s infinite;
+        }
+
+        .countdown-number {
+            font-size: 3rem;
             font-weight: bold;
-            z-index: 2;
-            backdrop-filter: blur(2px);
-            border: 1px solid rgba(255,255,255,0.2);
         }
 
-        @keyframes ticker {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-100%);
-            }
+        .message {
+            text-align: center;
+            font-size: 1.5rem;
+            max-width: 800px;
+            margin: 2rem 0;
+            line-height: 1.5;
         }
 
-        /* Responsive design */
+        .terminal {
+            border-top: 2px solid #0f0;
+            padding: 1rem;
+            margin-top: 2rem;
+            width: 100%;
+            max-width: 800px;
+        }
+
+        @keyframes glitch {
+            0% { transform: translate(0); }
+            20% { transform: translate(-2px, 2px); }
+            40% { transform: translate(-2px, -2px); }
+            60% { transform: translate(2px, 2px); }
+            80% { transform: translate(2px, -2px); }
+            100% { transform: translate(0); }
+        }
+
+        @keyframes pulse {
+            0% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0.7); }
+            70% { box-shadow: 0 0 0 10px rgba(0, 255, 0, 0); }
+            100% { box-shadow: 0 0 0 0 rgba(0, 255, 0, 0); }
+        }
+
         @media (max-width: 768px) {
-            .ticker-container {
-                border-radius: 0;
+            .title {
+                font-size: 2.5rem;
             }
-            .ticker-container::before {
-                font-size: 0.8em;
-                padding: 5px 10px;
+            
+            .countdown-item {
+                min-width: 120px;
             }
-            .ticker-content {
-                font-size: 1em;
+            
+            .countdown-number {
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
-    <div class="ticker-container">
-        <div class="ticker-content">
-            🚀 Breaking News: I am coming back within few days.Wait for my re entry
+    <div class="container">
+        <h1 class="title">NIHAL KRISHNA</h1>
+        <h2 class="title">RETURNING SOON</h2>
+        
+        <div class="countdown">
+            <div class="countdown-item">
+                <div class="countdown-number" id="days">00</div>
+                <div class="countdown-label">DAYS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="hours">00</div>
+                <div class="countdown-label">HOURS</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="minutes">00</div>
+                <div class="countdown-label">MINUTES</div>
+            </div>
+            <div class="countdown-item">
+                <div class="countdown-number" id="seconds">00</div>
+                <div class="countdown-label">SECONDS</div>
+            </div>
+        </div>
+
+        <p class="message">
+            // SYSTEM REBOOT INITIATED<br>
+            // TARGET DATE: 2025-04-14<br>
+            // PREPARING NEW CONTENT...
+        </p>
+
+        <div class="terminal">
+            > CONNECTING TO MAINFRAME...<span class="cursor">_</span>
         </div>
     </div>
 
     <script>
-        // Add pause on hover functionality
-        const ticker = document.querySelector('.ticker-content');
-        
-        ticker.addEventListener('mouseenter', () => {
-            ticker.style.animationPlayState = 'paused';
-        });
+        // Countdown timer
+        const countDownDate = new Date("Apr 14, 2025 00:00:00").getTime();
 
-        ticker.addEventListener('mouseleave', () => {
-            ticker.style.animationPlayState = 'running';
-        });
+        const timer = setInterval(function() {
+            const now = new Date().getTime();
+            const distance = countDownDate - now;
 
-        // Optional: Make it infinite by duplicating content
-        const tickerContent = document.querySelector('.ticker-content');
-        tickerContent.innerHTML += tickerContent.innerHTML;
+            const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+            document.getElementById("days").innerHTML = days.toString().padStart(2, '0');
+            document.getElementById("hours").innerHTML = hours.toString().padStart(2, '0');
+            document.getElementById("minutes").innerHTML = minutes.toString().padStart(2, '0');
+            document.getElementById("seconds").innerHTML = seconds.toString().padStart(2, '0');
+
+            if (distance < 0) {
+                clearInterval(timer);
+                document.getElementById("countdown").innerHTML = "LAUNCHED";
+            }
+        }, 1000);
+
+        // Terminal cursor effect
+        const cursor = document.querySelector('.cursor');
+        let cursorVisible = true;
+
+        setInterval(() => {
+            cursorVisible = !cursorVisible;
+            cursor.style.opacity = cursorVisible ? 1 : 0;
+        }, 500);
+
+        // Matrix-like background effect
+        const chars = "01";
+        const matrix = document.createElement('div');
+        matrix.className = 'matrix-bg';
+
+        for (let i = 0; i < 50; i++) {
+            const span = document.createElement('span');
+            span.style.left = `${Math.random() * 100}%`;
+            span.style.animationDelay = `${Math.random() * 5}s`;
+            span.textContent = chars[Math.floor(Math.random() * chars.length)];
+            matrix.appendChild(span);
+        }
+
+        document.body.appendChild(matrix);
     </script>
-
-<div id="score-frame"><a rel="nofollow" href="https://www.crictimes.org/cricket-scores">Live Cricket Scores</a></div><script type="text/javascript">var html = document.getElementById('score-frame');html.innerHTML = '<iframe src="https://cwidget.crictimes.org/?v=1.1" style="width:100%;min-height: 460px;" frameborder="0" scrolling="yes"></iframe>';</script>
-
-
-
- </html>
+</body>
+</html>
