@@ -1,259 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nihal Krishna - Cyber Reboot</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --neon-green: #0f0;
-            --cyber-cyan: #00f3ff;
-            --hacker-bg: #000;
-            --glow: 0 0 20px var(--neon-green);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: var(--hacker-bg);
-            font-family: 'Courier New', monospace;
-            color: var(--neon-green);
-            overflow: hidden;
-        }
-
-        /* Live Wallpaper Animation */
-        .live-wallpaper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.05) 10%, transparent 50%);
-            animation: pulseWallpaper 5s infinite alternate;
-        }
-
-        @keyframes pulseWallpaper {
-            0% { transform: scale(1); opacity: 0.1; }
-            100% { transform: scale(1.5); opacity: 0.3; }
-        }
-
-        /* Container */
-        .cyber-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Header */
-        .cyber-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .cyber-title {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5rem;
-            text-shadow: var(--glow);
-            animation: textGlitch 3s infinite;
-        }
-
-        @keyframes textGlitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); opacity: 0.8; }
-            40% { transform: translate(3px, -3px); opacity: 0.6; }
-            60% { transform: translate(-3px, 1px); opacity: 0.8; }
-            80% { transform: translate(1px, -1px); opacity: 0.6; }
-            100% { transform: translate(0); opacity: 1; }
-        }
-
-        /* Countdown Timer */
-        .cyber-countdown {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
-            perspective: 1000px;
-        }
-
-        .countdown-segment {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            border: 2px solid var(--neon-green);
-            border-radius: 5px;
-            text-align: center;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.3s ease;
-        }
-
-        .countdown-segment:hover {
-            transform: rotateX(10deg) rotateY(10deg) translateZ(20px);
-            box-shadow: 0 0 40px var(--neon-green);
-        }
-
-        .segment-number {
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--neon-green), var(--cyber-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: numberPulse 2s infinite;
-        }
-
-        @keyframes numberPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Terminal */
-        .cyber-terminal {
-            border: 2px solid var(--neon-green);
-            padding: 2rem;
-            width: 80%;
-            max-width: 800px;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .terminal-text {
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid var(--neon-green);
-            animation: typing 3s steps(40), blink 0.5s step-end infinite alternate;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Instagram Icon */
-        .social-hub {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .cyber-social {
-            color: var(--neon-green);
-            font-size: 2rem;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .cyber-social:hover {
-            color: var(--cyber-cyan);
-            transform: translateY(-5px);
-            filter: drop-shadow(0 0 10px var(--neon-green));
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cyber-title { font-size: 2.5rem; }
-            .cyber-countdown { grid-template-columns: 1fr 1fr; }
-            .segment-number { font-size: 2.5rem; }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hacker Video Platform</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <!-- Live Wallpaper Animation -->
-    <div class="live-wallpaper"></div>
-
-    <!-- Main Content -->
-    <div class="cyber-container">
-        <div class="cyber-header">
-            <h1 class="cyber-title">Nihal Krishna</h1>
-     
-        </div>
-
-        <!-- Countdown Timer -->
-        <div class="cyber-countdown">
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-days">00</div>
-                <div class="segment-label">Days</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-hours">00</div>
-                <div class="segment-label">Hours</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-minutes">00</div>
-                <div class="segment-label">Minutes</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-seconds">00</div>
-                <div class="segment-label">Seconds</div>
-            </div>
-        </div>
-
-        <!-- Terminal -->
-        <div class="cyber-terminal">
-            <p class="terminal-text">
-                > Initializing neural network... [██████ 85%]
-                Decrypting mainframe access... [COMPROMISED]
-                Bypassing security protocols... [SUCCESS]
-            </p>
-        </div>
-
-        <!-- Instagram Icon -->
-        <div class="social-hub">
-            <a href="https://www.instagram.com/n4ni_hal_?igsh=bnBmaGs2N2J5Zm1i" 
-               class="cyber-social"
-               target="_blank"
-               rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
-            </a>
-        </div>
+  <div class="container">
+    <header>
+      <h1>Hacker Video Platform</h1>
+      <p>Coming Soon: April 14, 2025</p>
+    </header>
+    <div class="countdown">
+      <div id="timer">
+        <span id="days"></span> Days
+        <span id="hours"></span> Hours
+        <span id="minutes"></span> Minutes
+        <span id="seconds"></span> Seconds
+      </div>
     </div>
-
-    <script>
-        // Countdown Timer
-        const targetDate = new Date('2025-04-14T00:00:00').getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
-
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
-
-            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
-
-            if (diff <= 0) {
-                document.querySelector('.cyber-countdown').innerHTML = 
-                    `<div class="countdown-segment" style="grid-column: 1/-1">
-                        <div class="segment-number">SYSTEM ONLINE</div>
-                    </div>`;
-            }
-        }
-        setInterval(updateCountdown, 1000);
-    </script>
+    <div class="video-container" id="video-container">
+      <p>Videos will be available after the countdown ends.</p>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
 </html>
+
+<style> 
+/* General Styles */
+body {
+  background-color: #000;
+  color: #0f0;
+  font-family: 'Courier New', Courier, monospace;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  overflow: hidden;
+}
+
+.container {
+  text-align: center;
+  padding: 20px;
+  border: 2px solid #0f0;
+  border-radius: 10px;
+  background-color: #111;
+  box-shadow: 0 0 20px #0f0;
+  max-width: 90%;
+  margin: 20px;
+}
+
+header h1 {
+  font-size: 3rem;
+  margin: 0;
+  text-shadow: 0 0 10px #0f0;
+}
+
+header p {
+  font-size: 1.2rem;
+  margin: 10px 0;
+}
+
+.countdown {
+  margin: 20px 0;
+}
+
+#timer {
+  font-size: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+#timer span {
+  padding: 10px;
+  background-color: #222;
+  border: 1px solid #0f0;
+  border-radius: 5px;
+  box-shadow: 0 0 10px #0f0;
+}
+
+.video-container {
+  margin-top: 20px;
+  display: none; /* Hidden until countdown ends */
+}
+
+.video-container p {
+  font-size: 1.2rem;
+}
+
+.video-container iframe {
+  width: 100%;
+  max-width: 800px;
+  height: 400px;
+  border: 2px solid #0f0;
+  border-radius: 10px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  #timer {
+    font-size: 1.5rem;
+    gap: 10px;
+  }
+
+  .video-container iframe {
+    height: 200px;
+  }
+}
+
+</style>
+
+<script>
+// Set the target date (April 14, 2025)
+const targetDate = new Date("April 14, 2025 00:00:00").getTime();
+
+// Update the countdown every second
+const timer = setInterval(() => {
+  const now = new Date().getTime();
+  const distance = targetDate - now;
+
+  // Calculate days, hours, minutes, and seconds
+  const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+  const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+  const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+  const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+  // Display the countdown
+  document.getElementById("days").innerText = days;
+  document.getElementById("hours").innerText = hours;
+  document.getElementById("minutes").innerText = minutes;
+  document.getElementById("seconds").innerText = seconds;
+
+  // If the countdown is over, show the video container
+  if (distance < 0) {
+    clearInterval(timer);
+    document.getElementById("timer").innerHTML = "Website is Live!";
+    document.getElementById("video-container").style.display = "block";
+    document.getElementById("video-container").innerHTML = `
+      <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    `;
+  }
+}, 1000);
+
+</script>
