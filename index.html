@@ -3,39 +3,70 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maha Shivaratri - Lord Shiva</title>
+  <title>Maha Shivaratri 2025 - Lord Shiva</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
 </head>
 <body>
+  <!-- Watermark -->
+  <div class="watermark">Powered by Nihal Krishna</div>
+
   <!-- Hero Section -->
   <section class="hero">
     <div class="hero-content">
-      <h1>Om Namah Shivaya</h1>
-      <p>Celebrate the divine night of Maha Shivaratri</p>
-      <a href="#about" class="cta-button">Learn More</a>
+      <h1 class="animate__animated animate__fadeInDown">Om Namah Shivaya</h1>
+      <p class="animate__animated animate__fadeInUp">Celebrate the divine night of Maha Shivaratri 2025</p>
+      <a href="#about" class="cta-button animate__animated animate__pulse animate__infinite">Explore the Divine</a>
     </div>
   </section>
 
   <!-- About Section -->
   <section id="about" class="about">
-    <h2>About Maha Shivaratri</h2>
-    <p>Maha Shivaratri is a Hindu festival celebrated annually in honor of Lord Shiva...</p>
+    <h2 class="animate__animated animate__fadeIn">About Maha Shivaratri</h2>
+    <p>Maha Shivaratri, the "Great Night of Shiva," is one of the most significant festivals in Hinduism. It is celebrated in honor of Lord Shiva, the destroyer of evil and the transformer. Devotees observe fasting, perform night-long vigils, and offer prayers to seek blessings for health, wealth, and spiritual growth.</p>
+    <p>This sacred night is believed to be the day when Lord Shiva performed the Tandava, the cosmic dance of creation and destruction.</p>
+  </section>
+
+  <!-- Significance Section -->
+  <section class="significance">
+    <h2 class="animate__animated animate__fadeIn">Significance of Maha Shivaratri</h2>
+    <ul>
+      <li>It marks the day Lord Shiva performed the Tandava, the cosmic dance of creation and destruction.</li>
+      <li>Devotees believe that observing Maha Shivaratri with sincerity washes away sins and liberates the soul.</li>
+      <li>It is also believed to be the night when Lord Shiva and Goddess Parvati got married.</li>
+      <li>Offering Bilva leaves, milk, and honey to the Shiva Lingam is considered highly auspicious.</li>
+    </ul>
+  </section>
+
+  <!-- YouTube Video Section -->
+  <section class="video">
+    <h2 class="animate__animated animate__fadeIn">Maha Shivaratri 2025 Celebrations</h2>
+    <div class="video-container">
+      <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    </div>
   </section>
 
   <!-- Gallery Section -->
   <section class="gallery">
-    <h2>Gallery</h2>
+    <h2 class="animate__animated animate__fadeIn">Divine Gallery</h2>
     <div class="image-grid">
-      <img src="shiva1.jpg" alt="Lord Shiva">
-      <img src="shiva2.jpg" alt="Lord Shiva">
-      <img src="shiva3.jpg" alt="Lord Shiva">
+      <img src="shiva1.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
+      <img src="shiva2.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
+      <img src="shiva3.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
     </div>
+  </section>
+
+  <!-- Mantras Section -->
+  <section class="mantras">
+    <h2 class="animate__animated animate__fadeIn">Sacred Mantras</h2>
+    <p class="mantra-text">"Om Namah Shivaya" - The Panchakshari Mantra dedicated to Lord Shiva.</p>
+    <p class="mantra-text">"Mahamrityunjaya Mantra" - For overcoming fear of death and attaining immortality.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Maha Shivaratri. All rights reserved.</p>
+    <p>&copy; 2025 Maha Shivaratri. All rights reserved. | Powered by Nihal Krishna</p>
   </footer>
 
   <script src="script.js"></script>
@@ -50,6 +81,7 @@ body {
   color: #f0f0f0;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 h1, h2 {
@@ -60,6 +92,16 @@ h1, h2 {
 a {
   color: #ffd700;
   text-decoration: none;
+}
+
+/* Watermark */
+.watermark {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  font-size: 14px;
+  color: rgba(255, 255, 255, 0.5);
+  z-index: 1000;
 }
 
 /* Hero Section */
@@ -96,17 +138,30 @@ a {
 }
 
 /* About Section */
-.about {
+.about, .significance, .video, .gallery, .mantras {
   padding: 50px 20px;
   text-align: center;
+}
+
+/* Video Section */
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 aspect ratio */
+  height: 0;
+  overflow: hidden;
+  max-width: 100%;
+  margin: 0 auto;
+}
+
+.video-container iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 /* Gallery Section */
-.gallery {
-  padding: 50px 20px;
-  text-align: center;
-}
-
 .image-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -121,6 +176,13 @@ a {
 
 .image-grid img:hover {
   transform: scale(1.05);
+}
+
+/* Mantras Section */
+.mantra-text {
+  font-family: 'Great Vibes', cursive;
+  font-size: 1.5rem;
+  color: #ffd700;
 }
 
 /* Footer */
