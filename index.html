@@ -1,1 +1,67 @@
-Nihal Krishna will be coming soon
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Popups Example</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <h1>RE ENTRY OF NIHAL KRISHNA</h1>
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    font-family: Arial, sans-serif;
+    overflow: hidden;
+}
+
+.popup {
+    position: fixed;
+    padding: 10px;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    border-radius: 5px;
+    font-size: 14px;
+    z-index: 1000;
+}
+</style>
+
+<script>
+
+function createPopup(text, position) {
+    const popup = document.createElement('div');
+    popup.className = 'popup';
+    popup.textContent = text;
+    popup.style.top = position.top;
+    popup.style.left = position.left;
+    popup.style.right = position.right;
+    popup.style.bottom = position.bottom;
+    document.body.appendChild(popup);
+}
+
+function getRandomPosition() {
+    const positions = [
+        { top: '10px', left: '10px' },
+        { top: '10px', right: '10px' },
+        { bottom: '10px', left: '10px' },
+        { bottom: '10px', right: '10px' }
+    ];
+    return positions[Math.floor(Math.random() * positions.length)];
+}
+
+function generatePopups() {
+    const text = "Nihal Krishna will be coming back on 14 April 2025";
+    setInterval(() => {
+        const position = getRandomPosition();
+        createPopup(text, position);
+    }, 1000); // Adjust the interval as needed
+}
+
+window.onload = generatePopups;
+
+</script>
