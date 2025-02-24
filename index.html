@@ -1,72 +1,42 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maha Shivaratri 2025 - Lord Shiva</title>
+  <title>Nihal Krishna - Portfolio</title>
   <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Cinzel&family=Playfair+Display&family=Great+Vibes&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-  <!-- Watermark -->
-  <div class="watermark">Powered by Nihal Krishna</div>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <div class="hero-content">
-      <h1 class="animate__animated animate__fadeInDown">Om Namah Shivaya</h1>
-      <p class="animate__animated animate__fadeInUp">Celebrate the divine night of Maha Shivaratri 2025</p>
-      <a href="#about" class="cta-button animate__animated animate__pulse animate__infinite">Explore the Divine</a>
+  <!-- Landing Page -->
+  <header class="landing-page">
+    <div class="overlay">
+      <h1>Nihal Krishna</h1>
+      <p>Hacker | Full Stack Developer</p>
+      <a href="#live-telecast" class="cta-button">Watch Live Telecast</a>
     </div>
-  </section>
+  </header>
 
-  <!-- About Section -->
-  <section id="about" class="about">
-    <h2 class="animate__animated animate__fadeIn">About Maha Shivaratri</h2>
-    <p>Maha Shivaratri, the "Great Night of Shiva," is one of the most significant festivals in Hinduism. It is celebrated in honor of Lord Shiva, the destroyer of evil and the transformer. Devotees observe fasting, perform night-long vigils, and offer prayers to seek blessings for health, wealth, and spiritual growth.</p>
-    <p>This sacred night is believed to be the day when Lord Shiva performed the Tandava, the cosmic dance of creation and destruction.</p>
-  </section>
-
-  <!-- Significance Section -->
-  <section class="significance">
-    <h2 class="animate__animated animate__fadeIn">Significance of Maha Shivaratri</h2>
-    <ul>
-      <li>It marks the day Lord Shiva performed the Tandava, the cosmic dance of creation and destruction.</li>
-      <li>Devotees believe that observing Maha Shivaratri with sincerity washes away sins and liberates the soul.</li>
-      <li>It is also believed to be the night when Lord Shiva and Goddess Parvati got married.</li>
-      <li>Offering Bilva leaves, milk, and honey to the Shiva Lingam is considered highly auspicious.</li>
-    </ul>
-  </section>
-
-  <!-- YouTube Video Section -->
-  <section class="video">
-    <h2 class="animate__animated animate__fadeIn">Maha Shivaratri 2025 Celebrations</h2>
-    <div class="video-container">
-      <iframe width="560" height="315" src="https://www.youtube.com/embed/your-video-id" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <!-- Live Telecast Section -->
+  <section id="live-telecast" class="live-telecast">
+    <h2>Today's Live Telecast</h2>
+    <div class="video-grid">
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
+      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
     </div>
-  </section>
-
-  <!-- Gallery Section -->
-  <section class="gallery">
-    <h2 class="animate__animated animate__fadeIn">Divine Gallery</h2>
-    <div class="image-grid">
-      <img src="shiva1.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
-      <img src="shiva2.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
-      <img src="shiva3.jpg" alt="Lord Shiva" class="animate__animated animate__zoomIn">
-    </div>
-  </section>
-
-  <!-- Mantras Section -->
-  <section class="mantras">
-    <h2 class="animate__animated animate__fadeIn">Sacred Mantras</h2>
-    <p class="mantra-text">"Om Namah Shivaya" - The Panchakshari Mantra dedicated to Lord Shiva.</p>
-    <p class="mantra-text">"Mahamrityunjaya Mantra" - For overcoming fear of death and attaining immortality.</p>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>&copy; 2025 Maha Shivaratri. All rights reserved. | Powered by Nihal Krishna</p>
+    <p>&copy; 2025 Nihal Krishna. All rights reserved.</p>
+    <div class="social-links">
+      <a href="#"><i class="fab fa-github"></i></a>
+      <a href="#"><i class="fab fa-youtube"></i></a>
+      <a href="#"><i class="fab fa-linkedin"></i></a>
+    </div>
   </footer>
 
   <script src="script.js"></script>
@@ -76,139 +46,126 @@
 <style>
 /* General Styles */
 body {
-  font-family: 'Playfair Display', serif;
-  background-color: #0a192f; /* Dark blue */
-  color: #f0f0f0;
   margin: 0;
-  padding: 0;
-  overflow-x: hidden;
+  font-family: 'Roboto', sans-serif;
+  background: #1a1a1a;
+  color: #fff;
 }
 
 h1, h2 {
-  font-family: 'Cinzel', serif;
-  color: #ffd700; /* Gold */
+  font-family: 'Orbitron', sans-serif;
 }
 
 a {
-  color: #ffd700;
   text-decoration: none;
+  color: #00ffcc;
 }
 
-/* Watermark */
-.watermark {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  font-size: 14px;
-  color: rgba(255, 255, 255, 0.5);
-  z-index: 1000;
-}
-
-/* Hero Section */
-.hero {
-  background: url('shiva-hero.jpg') no-repeat center center/cover;
+/* Landing Page */
+.landing-page {
   height: 100vh;
+  background: url('background.jpg') no-repeat center center/cover;
   display: flex;
   justify-content: center;
   align-items: center;
   text-align: center;
 }
 
-.hero-content h1 {
-  font-size: 4rem;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.hero-content p {
-  font-size: 1.5rem;
-  animation: fadeIn 3s ease-in-out;
+.overlay {
+  background: rgba(0, 0, 0, 0.7);
+  padding: 2rem;
+  border-radius: 10px;
 }
 
 .cta-button {
-  background-color: #ffd700;
-  color: #0a192f;
-  padding: 10px 20px;
+  display: inline-block;
+  margin-top: 1rem;
+  padding: 0.8rem 2rem;
+  background: #00ffcc;
+  color: #1a1a1a;
   border-radius: 5px;
-  font-size: 1.2rem;
-  transition: background-color 0.3s ease;
+  font-weight: bold;
+  transition: background 0.3s ease;
 }
 
 .cta-button:hover {
-  background-color: #c0a000;
+  background: #00ccaa;
 }
 
-/* About Section */
-.about, .significance, .video, .gallery, .mantras {
-  padding: 50px 20px;
+/* Live Telecast Section */
+.live-telecast {
+  padding: 2rem;
   text-align: center;
 }
 
-/* Video Section */
-.video-container {
-  position: relative;
-  padding-bottom: 56.25%; /* 16:9 aspect ratio */
-  height: 0;
-  overflow: hidden;
-  max-width: 100%;
-  margin: 0 auto;
-}
-
-.video-container iframe {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-}
-
-/* Gallery Section */
-.image-grid {
+.video-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-  gap: 20px;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 1rem;
+  margin-top: 1rem;
 }
 
-.image-grid img {
+.video-grid iframe {
   width: 100%;
+  height: 200px;
+  border: 2px solid #00ffcc;
   border-radius: 10px;
-  transition: transform 0.3s ease;
-}
-
-.image-grid img:hover {
-  transform: scale(1.05);
-}
-
-/* Mantras Section */
-.mantra-text {
-  font-family: 'Great Vibes', cursive;
-  font-size: 1.5rem;
-  color: #ffd700;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 20px;
-  background-color: #081523;
+  padding: 1rem;
+  background: #000;
+  margin-top: 2rem;
 }
 
-/* Animations */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
+.social-links {
+  margin-top: 1rem;
+}
+
+.social-links a {
+  margin: 0 0.5rem;
+  font-size: 1.5rem;
+  color: #00ffcc;
+  transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+  color: #00ccaa;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .video-grid {
+    grid-template-columns: 1fr;
   }
-  to {
-    opacity: 1;
+
+  .landing-page h1 {
+    font-size: 2rem;
+  }
+
+  .landing-page p {
+    font-size: 1rem;
   }
 }
+
 </style>
 
 <script>
-// Add any interactive elements here, like a scrolling animation or dynamic content
+// Add any interactive animations or functionality here
 document.addEventListener('DOMContentLoaded', () => {
-  const ctaButton = document.querySelector('.cta-button');
-  ctaButton.addEventListener('click', () => {
-    alert('Har Har Mahadev!');
+  // Example: Add a fade-in animation for sections
+  const sections = document.querySelectorAll('section');
+  sections.forEach(section => {
+    section.style.opacity = '0';
+    section.style.transition = 'opacity 1s ease';
   });
+
+  setTimeout(() => {
+    sections.forEach(section => {
+      section.style.opacity = '1';
+    });
+  }, 500);
 });
 </script>
