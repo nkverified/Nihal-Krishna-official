@@ -3,230 +3,149 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nihal Krishna - Full Stack Developer & Hacker</title>
+    <title>Arun Jo Cherian - Portfolio</title>
     <link rel="stylesheet" href="styles.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <script src="script.js" defer></script>
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <nav>
-            <div class="logo">Nihal Krishna</div>
-            <ul class="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#contact">Contact</a></li>
-            </ul>
-        </nav>
-        <div class="hero">
-            <h1 class="animate__animated animate__fadeInDown">Nihal Krishna</h1>
-            <p class="animate__animated animate__fadeInUp">Full Stack Developer | Hacker | Innovator</p>
-            <a href="#about" class="btn animate__animated animate__fadeIn">Explore More</a>
+        <div class="profile">
+            <img src="profile.jpg" alt="Profile">
+            <h1>Arun Jo Cherian</h1>
+            <p>Salesforce Developer</p>
+            <p>Kochi, Kerala</p>
+            <button class="resume">Resume</button>
+            <div class="socials">
+                <a href="#"><i class="fab fa-linkedin"></i></a>
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-github"></i></a>
+            </div>
         </div>
     </header>
 
-    <section id="about" class="about-section">
-        <h2>About Me</h2>
-        <p>I am a passionate full-stack developer and ethical hacker with a knack for solving complex problems and building innovative solutions. With a strong foundation in computer science and a love for coding, I strive to create impactful and efficient applications.</p>
+    <section class="about">
+        <h2>Building Scalable Solutions for Tomorrow</h2>
+        <p>Experienced Salesforce Developer skilled in designing and optimizing CRM applications...</p>
     </section>
 
-    <section id="skills" class="skills-section">
-        <h2>Skills</h2>
-        <div class="skills-grid">
-            <div class="skill">HTML/CSS</div>
-            <div class="skill">JavaScript</div>
-            <div class="skill">React</div>
-            <div class="skill">Node.js</div>
-            <div class="skill">Python</div>
-            <div class="skill">Ethical Hacking</div>
+    <section class="experience">
+        <h2>Experience</h2>
+        <div class="job">
+            <h3>Salesforce Developer/Admin</h3>
+            <p>Tata Consultancy Services</p>
+            <p>July 2020 - Present</p>
+            <p>Proficient in creating workflows, validation rules, and developing Apex-based solutions...</p>
         </div>
     </section>
 
-    <section id="projects" class="projects-section">
+    <section class="education">
+        <h2>Education</h2>
+        <div class="edu-item">
+            <h3>B.Tech Electronics And Communication Engineering</h3>
+            <p>MBD College, Kuttikkanam (2015 - 2019)</p>
+        </div>
+        <div class="edu-item">
+            <h3>Higher Secondary: Biology Science</h3>
+            <p>St. Joseph’s HSS Peruvanthanam (2011 - 2013)</p>
+        </div>
+    </section>
+
+    <section class="projects">
         <h2>Projects</h2>
-        <div class="projects-grid">
-            <div class="project">
-                <h3>Project 1</h3>
-                <p>Description of project 1.</p>
-            </div>
-            <div class="project">
-                <h3>Project 2</h3>
-                <p>Description of project 2.</p>
-            </div>
-            <div class="project">
-                <h3>Project 3</h3>
-                <p>Description of project 3.</p>
-            </div>
+        <div class="project">
+            <img src="project1.jpg" alt="Project 1">
+            <h3>Project 1</h3>
+            <p>Apex, Visual Force</p>
+        </div>
+        <div class="project">
+            <img src="project2.jpg" alt="Project 2">
+            <h3>Project 2</h3>
+            <p>LWC, JavaScript</p>
         </div>
     </section>
 
-    <section id="contact" class="contact-section">
-        <h2>Contact</h2>
-        <form>
-            <input type="text" placeholder="Your Name" required>
-            <input type="email" placeholder="Your Email" required>
-            <textarea placeholder="Your Message" required></textarea>
-            <button type="submit">Send Message</button>
-        </form>
-    </section>
-
-    <footer>
-        <p>&copy; 2023 Nihal Krishna. All rights reserved.</p>
-    </footer>
-
-    <script src="script.js"></script>
 </body>
 </html>
 
 <style>
-/* General Styles */
+/* Global Styles */
 body {
-    font-family: 'Poppins', sans-serif;
+    background-color: #0a0a0a;
+    color: #ffffff;
+    font-family: Arial, sans-serif;
+    text-align: center;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
+/* Header */
 header {
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    color: white;
-    padding: 100px 0;
-    text-align: center;
-}
-
-header h1 {
-    font-size: 3rem;
-    margin-bottom: 10px;
-}
-
-header p {
-    font-size: 1.5rem;
-    margin-bottom: 20px;
-}
-
-.btn {
-    padding: 10px 20px;
-    background-color: #ff6f61;
-    color: white;
-    text-decoration: none;
-    border-radius: 5px;
-    transition: background-color 0.3s ease;
-}
-
-.btn:hover {
-    background-color: #ff3b2f;
-}
-
-/* Navigation */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 20px 50px;
-    position: fixed;
-    width: 100%;
-    top: 0;
-    background-color: rgba(0, 0, 0, 0.7);
-    z-index: 1000;
-}
-
-nav .logo {
-    font-size: 1.5rem;
-    font-weight: bold;
-}
-
-nav .nav-links {
-    list-style: none;
-    display: flex;
-}
-
-nav .nav-links li {
-    margin-left: 20px;
-}
-
-nav .nav-links a {
-    color: white;
-    text-decoration: none;
-    font-size: 1rem;
-}
-
-/* Sections */
-section {
-    padding: 60px 20px;
-}
-
-h2 {
-    text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 40px;
-}
-
-.about-section, .skills-section, .projects-section, .contact-section {
-    background-color: white;
-    margin: 20px;
-    padding: 40px;
-    border-radius: 10px;
-    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-}
-
-.skills-grid, .projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 20px;
-}
-
-.skill, .project {
-    background-color: #f4f4f4;
     padding: 20px;
-    border-radius: 10px;
-    text-align: center;
+    background-color: #121212;
 }
 
-.contact-section form {
-    display: flex;
-    flex-direction: column;
-    gap: 15px;
+.profile img {
+    width: 120px;
+    border-radius: 50%;
 }
 
-.contact-section input, .contact-section textarea {
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
+.profile h1 {
+    color: #ff4f4f;
 }
 
-.contact-section button {
-    padding: 10px;
-    background-color: #6a11cb;
+.resume {
+    background-color: #ff4f4f;
     color: white;
+    padding: 10px 20px;
     border: none;
     border-radius: 5px;
     cursor: pointer;
 }
 
-.contact-section button:hover {
-    background-color: #2575fc;
+.socials a {
+    color: white;
+    font-size: 20px;
+    margin: 0 10px;
 }
 
-/* Footer */
-footer {
-    text-align: center;
+/* Sections */
+section {
     padding: 20px;
-    background-color: #333;
-    color: white;
+    margin: 20px auto;
+    width: 90%;
+    max-width: 800px;
+    background-color: #1a1a1a;
+    border-radius: 8px;
+}
+
+/* Projects */
+.projects {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.project {
+    width: 45%;
+    margin: 10px;
+}
+
+.project img {
+    width: 100%;
+    border-radius: 5px;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+    .project {
+        width: 100%;
+    }
 }
 </style>
 
 <script>
-// script.js
-document.addEventListener('scroll', () => {
-    const nav = document.querySelector('nav');
-    if (window.scrollY > 50) {
-        nav.style.backgroundColor = '#333';
-    } else {
-        nav.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
-    }
+document.querySelector(".resume").addEventListener("click", function() {
+    window.open("resume.pdf", "_blank");
 });
 </script>
