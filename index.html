@@ -1,171 +1,232 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nihal Krishna - Portfolio</title>
-  <link rel="stylesheet" href="styles.css">
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Orbitron:wght@400;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nihal Krishna - Full Stack Developer & Hacker</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&family=Montserrat:wght@400;700&family=Poppins:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
 </head>
 <body>
-  <!-- Landing Page -->
-  <header class="landing-page">
-    <div class="overlay">
-      <h1>Nihal Krishna</h1>
-      <p>Hacker | Full Stack Developer</p>
-      <a href="#live-telecast" class="cta-button">Watch Live Telecast</a>
-    </div>
-  </header>
+    <header>
+        <nav>
+            <div class="logo">Nihal Krishna</div>
+            <ul class="nav-links">
+                <li><a href="#about">About</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        <div class="hero">
+            <h1 class="animate__animated animate__fadeInDown">Nihal Krishna</h1>
+            <p class="animate__animated animate__fadeInUp">Full Stack Developer | Hacker | Innovator</p>
+            <a href="#about" class="btn animate__animated animate__fadeIn">Explore More</a>
+        </div>
+    </header>
 
-  <!-- Live Telecast Section -->
-  <section id="live-telecast" class="live-telecast">
-    <h2>Today's Live Telecast</h2>
-    <div class="video-grid">
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_1" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_2" frameborder="0" allowfullscreen></iframe>
-      <iframe src="https://www.youtube.com/embed/VIDEO_ID_3" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
+    <section id="about" class="about-section">
+        <h2>About Me</h2>
+        <p>I am a passionate full-stack developer and ethical hacker with a knack for solving complex problems and building innovative solutions. With a strong foundation in computer science and a love for coding, I strive to create impactful and efficient applications.</p>
+    </section>
 
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 Nihal Krishna. All rights reserved.</p>
-    <div class="social-links">
-      <a href="#"><i class="fab fa-github"></i></a>
-      <a href="#"><i class="fab fa-youtube"></i></a>
-      <a href="#"><i class="fab fa-linkedin"></i></a>
-    </div>
-  </footer>
+    <section id="skills" class="skills-section">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill">HTML/CSS</div>
+            <div class="skill">JavaScript</div>
+            <div class="skill">React</div>
+            <div class="skill">Node.js</div>
+            <div class="skill">Python</div>
+            <div class="skill">Ethical Hacking</div>
+        </div>
+    </section>
 
-  <script src="script.js"></script>
+    <section id="projects" class="projects-section">
+        <h2>Projects</h2>
+        <div class="projects-grid">
+            <div class="project">
+                <h3>Project 1</h3>
+                <p>Description of project 1.</p>
+            </div>
+            <div class="project">
+                <h3>Project 2</h3>
+                <p>Description of project 2.</p>
+            </div>
+            <div class="project">
+                <h3>Project 3</h3>
+                <p>Description of project 3.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="contact-section">
+        <h2>Contact</h2>
+        <form>
+            <input type="text" placeholder="Your Name" required>
+            <input type="email" placeholder="Your Email" required>
+            <textarea placeholder="Your Message" required></textarea>
+            <button type="submit">Send Message</button>
+        </form>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Nihal Krishna. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
 <style>
 /* General Styles */
 body {
-  margin: 0;
-  font-family: 'Roboto', sans-serif;
-  background: #1a1a1a;
-  color: #fff;
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: #f4f4f4;
+    color: #333;
 }
 
-h1, h2 {
-  font-family: 'Orbitron', sans-serif;
+header {
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    color: white;
+    padding: 100px 0;
+    text-align: center;
 }
 
-a {
-  text-decoration: none;
-  color: #00ffcc;
+header h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
 }
 
-/* Landing Page */
-.landing-page {
-  height: 100vh;
-  background: url('background.jpg') no-repeat center center/cover;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
+header p {
+    font-size: 1.5rem;
+    margin-bottom: 20px;
 }
 
-.overlay {
-  background: rgba(0, 0, 0, 0.7);
-  padding: 2rem;
-  border-radius: 10px;
+.btn {
+    padding: 10px 20px;
+    background-color: #ff6f61;
+    color: white;
+    text-decoration: none;
+    border-radius: 5px;
+    transition: background-color 0.3s ease;
 }
 
-.cta-button {
-  display: inline-block;
-  margin-top: 1rem;
-  padding: 0.8rem 2rem;
-  background: #00ffcc;
-  color: #1a1a1a;
-  border-radius: 5px;
-  font-weight: bold;
-  transition: background 0.3s ease;
+.btn:hover {
+    background-color: #ff3b2f;
 }
 
-.cta-button:hover {
-  background: #00ccaa;
+/* Navigation */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 1000;
 }
 
-/* Live Telecast Section */
-.live-telecast {
-  padding: 2rem;
-  text-align: center;
+nav .logo {
+    font-size: 1.5rem;
+    font-weight: bold;
 }
 
-.video-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-  gap: 1rem;
-  margin-top: 1rem;
+nav .nav-links {
+    list-style: none;
+    display: flex;
 }
 
-.video-grid iframe {
-  width: 100%;
-  height: 200px;
-  border: 2px solid #00ffcc;
-  border-radius: 10px;
+nav .nav-links li {
+    margin-left: 20px;
+}
+
+nav .nav-links a {
+    color: white;
+    text-decoration: none;
+    font-size: 1rem;
+}
+
+/* Sections */
+section {
+    padding: 60px 20px;
+}
+
+h2 {
+    text-align: center;
+    font-size: 2.5rem;
+    margin-bottom: 40px;
+}
+
+.about-section, .skills-section, .projects-section, .contact-section {
+    background-color: white;
+    margin: 20px;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.skills-grid, .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill, .project {
+    background-color: #f4f4f4;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.contact-section form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.contact-section input, .contact-section textarea {
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+
+.contact-section button {
+    padding: 10px;
+    background-color: #6a11cb;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.contact-section button:hover {
+    background-color: #2575fc;
 }
 
 /* Footer */
 footer {
-  text-align: center;
-  padding: 1rem;
-  background: #000;
-  margin-top: 2rem;
+    text-align: center;
+    padding: 20px;
+    background-color: #333;
+    color: white;
 }
-
-.social-links {
-  margin-top: 1rem;
-}
-
-.social-links a {
-  margin: 0 0.5rem;
-  font-size: 1.5rem;
-  color: #00ffcc;
-  transition: color 0.3s ease;
-}
-
-.social-links a:hover {
-  color: #00ccaa;
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-  .video-grid {
-    grid-template-columns: 1fr;
-  }
-
-  .landing-page h1 {
-    font-size: 2rem;
-  }
-
-  .landing-page p {
-    font-size: 1rem;
-  }
-}
-
 </style>
 
 <script>
-// Add any interactive animations or functionality here
-document.addEventListener('DOMContentLoaded', () => {
-  // Example: Add a fade-in animation for sections
-  const sections = document.querySelectorAll('section');
-  sections.forEach(section => {
-    section.style.opacity = '0';
-    section.style.transition = 'opacity 1s ease';
-  });
-
-  setTimeout(() => {
-    sections.forEach(section => {
-      section.style.opacity = '1';
-    });
-  }, 500);
+// script.js
+document.addEventListener('scroll', () => {
+    const nav = document.querySelector('nav');
+    if (window.scrollY > 50) {
+        nav.style.backgroundColor = '#333';
+    } else {
+        nav.style.backgroundColor = 'rgba(0, 0, 0, 0.7)';
+    }
 });
 </script>
