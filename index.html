@@ -3,149 +3,167 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Arun Jo Cherian - Portfolio</title>
+    <title>Nihal Krishna - Hacker & Full Stack Developer</title>
     <link rel="stylesheet" href="styles.css">
-    <script src="script.js" defer></script>
-    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <header>
-        <div class="profile">
-            <img src="profile.jpg" alt="Profile">
-            <h1>Arun Jo Cherian</h1>
-            <p>Salesforce Developer</p>
-            <p>Kochi, Kerala</p>
-            <button class="resume">Resume</button>
-            <div class="socials">
-                <a href="#"><i class="fab fa-linkedin"></i></a>
-                <a href="#"><i class="fab fa-instagram"></i></a>
-                <a href="#"><i class="fab fa-github"></i></a>
-            </div>
-        </div>
+        <h1>Nihal Krishna</h1>
+        <p>Hacker | Full Stack Developer | Data Scientist</p>
     </header>
 
-    <section class="about">
-        <h2>Building Scalable Solutions for Tomorrow</h2>
-        <p>Experienced Salesforce Developer skilled in designing and optimizing CRM applications...</p>
+    <section id="countdown">
+        <h2>Countdown Timer</h2>
+        <div id="timer"></div>
     </section>
 
-    <section class="experience">
-        <h2>Experience</h2>
-        <div class="job">
-            <h3>Salesforce Developer/Admin</h3>
-            <p>Tata Consultancy Services</p>
-            <p>July 2020 - Present</p>
-            <p>Proficient in creating workflows, validation rules, and developing Apex-based solutions...</p>
-        </div>
+    <section id="instagram">
+        <a href="https://www.instagram.com" target="_blank">
+            <img src="instagram-logo.png" alt="Instagram Logo">
+        </a>
     </section>
 
-    <section class="education">
-        <h2>Education</h2>
-        <div class="edu-item">
-            <h3>B.Tech Electronics And Communication Engineering</h3>
-            <p>MBD College, Kuttikkanam (2015 - 2019)</p>
-        </div>
-        <div class="edu-item">
-            <h3>Higher Secondary: Biology Science</h3>
-            <p>St. Joseph’s HSS Peruvanthanam (2011 - 2013)</p>
-        </div>
-    </section>
-
-    <section class="projects">
-        <h2>Projects</h2>
-        <div class="project">
-            <img src="project1.jpg" alt="Project 1">
-            <h3>Project 1</h3>
-            <p>Apex, Visual Force</p>
-        </div>
-        <div class="project">
-            <img src="project2.jpg" alt="Project 2">
-            <h3>Project 2</h3>
-            <p>LWC, JavaScript</p>
+    <section id="youtube-grid">
+        <h2>YouTube Videos</h2>
+        <div class="grid-container">
+            <div class="grid-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="grid-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="grid-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
+            <div class="grid-item">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
+            </div>
         </div>
     </section>
 
+    <footer>
+        <p>&copy; 2025 Nihal Krishna. All rights reserved.</p>
+    </footer>
+
+    <script src="script.js"></script>
 </body>
 </html>
 
 <style>
-/* Global Styles */
 body {
-    background-color: #0a0a0a;
-    color: #ffffff;
-    font-family: Arial, sans-serif;
-    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    background-color: #0d0d0d;
+    color: #00ff00;
     margin: 0;
     padding: 0;
 }
 
-/* Header */
 header {
+    text-align: center;
     padding: 20px;
-    background-color: #121212;
-}
-
-.profile img {
-    width: 120px;
-    border-radius: 50%;
-}
-
-.profile h1 {
-    color: #ff4f4f;
-}
-
-.resume {
-    background-color: #ff4f4f;
-    color: white;
-    padding: 10px 20px;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.socials a {
-    color: white;
-    font-size: 20px;
-    margin: 0 10px;
-}
-
-/* Sections */
-section {
-    padding: 20px;
-    margin: 20px auto;
-    width: 90%;
-    max-width: 800px;
     background-color: #1a1a1a;
-    border-radius: 8px;
 }
 
-/* Projects */
-.projects {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+header h1 {
+    font-size: 2.5em;
+    margin: 0;
 }
 
-.project {
-    width: 45%;
-    margin: 10px;
+header p {
+    font-size: 1.2em;
+    margin: 0;
 }
 
-.project img {
+#countdown {
+    text-align: center;
+    padding: 20px;
+}
+
+#timer {
+    font-size: 2em;
+    color: #ff00ff;
+}
+
+#instagram {
+    text-align: center;
+    padding: 20px;
+}
+
+#instagram img {
+    width: 50px;
+    height: 50px;
+}
+
+#youtube-grid {
+    padding: 20px;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.grid-item iframe {
     width: 100%;
-    border-radius: 5px;
+    height: 200px;
+    border: 2px solid #00ff00;
+    border-radius: 10px;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-    .project {
-        width: 100%;
-    }
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #1a1a1a;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 1em;
+    color: #00ff00;
+}
+
+/* Animative Colors */
+@keyframes colorChange {
+    0% { color: #00ff00; }
+    25% { color: #ff00ff; }
+    50% { color: #00ffff; }
+    75% { color: #ffff00; }
+    100% { color: #00ff00; }
+}
+
+h1, h2, #timer {
+    animation: colorChange 5s infinite;
 }
 </style>
-
 <script>
-document.querySelector(".resume").addEventListener("click", function() {
-    window.open("resume.pdf", "_blank");
-});
+// Set the date we're counting down to
+const countDownDate = new Date("Apr 14, 2025 00:00:00").getTime();
+
+// Update the countdown every 1 second
+const x = setInterval(function() {
+
+    // Get today's date and time
+    const now = new Date().getTime();
+
+    // Find the distance between now and the countdown date
+    const distance = countDownDate - now;
+
+    // Time calculations for days, hours, minutes, and seconds
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    // Display the result in the element with id="timer"
+    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
+    + minutes + "m " + seconds + "s ";
+
+    // If the countdown is finished, write some text
+    if (distance < 0) {
+        clearInterval(x);
+        document.getElementById("timer").innerHTML = "EXPIRED";
+    }
+}, 1000);
 </script>
