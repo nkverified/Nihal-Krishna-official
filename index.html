@@ -2,168 +2,122 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nihal Krishna - Hacker & Full Stack Developer</title>
-    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Nihal Krishna</title>
 </head>
 <body>
-    <header>
-        <h1>Nihal Krishna</h1>
-        <p>Hacker | Full Stack Developer | Data Scientist</p>
-    </header>
-
-    <section id="countdown">
-        <h2>Countdown Timer</h2>
-        <div id="timer"></div>
-    </section>
-
-    <section id="instagram">
-        <a href="https://www.instagram.com" target="_blank">
-            <img src="instagram-logo.png" alt="Instagram Logo">
-        </a>
-    </section>
-
-    <section id="youtube-grid">
-        <h2>YouTube Videos</h2>
-        <div class="grid-container">
-            <div class="grid-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="grid-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="grid-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-            <div class="grid-item">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
-
-    <footer>
-        <p>&copy; 2025 Nihal Krishna. All rights reserved.</p>
-    </footer>
-
+    <div class="msg">Scanning</div>
+    <div id="console">
+    </div>
     <script src="script.js"></script>
 </body>
 </html>
 
 <style>
 body {
-    font-family: 'Courier New', Courier, monospace;
-    background-color: #0d0d0d;
-    color: #00ff00;
+    margin: 0;
+    padding: 5vh 5vw;
+    background: black;
+    overflow:hidden;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  
+  p {
+    font-family: monospace;
+    font-weight: bold;
+    font-size: 4.1vh;
     margin: 0;
     padding: 0;
-}
-
-header {
+    line-height: 1;
+    color: limegreen;
+    text-shadow: 0px 0px 10px limegreen;
+  }
+  
+  .msg {
+    font-family: monospace;
+    font-weight: bold;
+    text-transform: uppercase;
+    font-size: 5vh;
+    padding-top: 5vh;
+    background: red;
+    box-shadow: 0 0 30px red;
+    text-shadow: 0 0 20px white;
+    color: white;
+    width: 20vw;
+    height: 15vh;
+    position: absolute;
+    left: 50%;
+    margin-left: -10vw;
+    top: 50%;
+    margin-top: -5vh;
     text-align: center;
-    padding: 20px;
-    background-color: #1a1a1a;
-}
-
-header h1 {
-    font-size: 2.5em;
-    margin: 0;
-}
-
-header p {
-    font-size: 1.2em;
-    margin: 0;
-}
-
-#countdown {
-    text-align: center;
-    padding: 20px;
-}
-
-#timer {
-    font-size: 2em;
-    color: #ff00ff;
-}
-
-#instagram {
-    text-align: center;
-    padding: 20px;
-}
-
-#instagram img {
-    width: 50px;
-    height: 50px;
-}
-
-#youtube-grid {
-    padding: 20px;
-}
-
-.grid-container {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 20px;
-}
-
-.grid-item iframe {
-    width: 100%;
-    height: 200px;
-    border: 2px solid #00ff00;
-    border-radius: 10px;
-}
-
-footer {
-    text-align: center;
-    padding: 20px;
-    background-color: #1a1a1a;
-    margin-top: 20px;
-}
-
-footer p {
-    margin: 0;
-    font-size: 1em;
-    color: #00ff00;
-}
-
-/* Animative Colors */
-@keyframes colorChange {
-    0% { color: #00ff00; }
-    25% { color: #ff00ff; }
-    50% { color: #00ffff; }
-    75% { color: #ffff00; }
-    100% { color: #00ff00; }
-}
-
-h1, h2, #timer {
-    animation: colorChange 5s infinite;
-}
-</style>
-<script>
-// Set the date we're counting down to
-const countDownDate = new Date("Apr 14, 2025 00:00:00").getTime();
-
-// Update the countdown every 1 second
-const x = setInterval(function() {
-
-    // Get today's date and time
-    const now = new Date().getTime();
-
-    // Find the distance between now and the countdown date
-    const distance = countDownDate - now;
-
-    // Time calculations for days, hours, minutes, and seconds
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    // Display the result in the element with id="timer"
-    document.getElementById("timer").innerHTML = days + "d " + hours + "h "
-    + minutes + "m " + seconds + "s ";
-
-    // If the countdown is finished, write some text
-    if (distance < 0) {
-        clearInterval(x);
-        document.getElementById("timer").innerHTML = "EXPIRED";
+    min-width: 200px;
+    animation-name: blink;
+    animation-duration: 0.6s;
+    animation-iteration-count: infinite;
+    animation-direction: alternate;
+    animation-timing-function: linear;
+  }
+  
+  @keyframes blink {
+    0% {
+      opacity: 0;
     }
-}, 1000);
+    100% {
+      opacity: 1;
+    }
+  }
+</style>
+
+<script>
+var intervalID = window.setInterval(updateScreen, 200);
+var console = document.getElementById("console");
+
+var txt = [
+  "FORCE: XX0022. ENCYPT://000.222.2345",
+  "TRYPASS: ********* AUTH CODE: ALPHA GAMMA: 1___ PRIORITY 1",
+  "RETRY: REINDEER FLOTILLA",
+  "Z:> /FALKEN/GAMES/TICTACTOE/ EXECUTE -PLAYERS 0",
+  "================================================",
+  "Priority 1 // local / scanning...",
+  "scanning ports...",
+  "BACKDOOR FOUND (23.45.23.12.00000000)",
+  "BACKDOOR FOUND (13.66.23.12.00110000)",
+  "BACKDOOR FOUND (13.66.23.12.00110044)",
+  "...",
+  "...",
+  "BRUTE.EXE -r -z",
+  "...locating vulnerabilities...",
+  "...vulnerabilities found...",
+  "MCP/> DEPLOY CLU",
+  "SCAN: __ 0100.0000.0554.0080",
+  "SCAN: __ 0020.0000.0553.0080",
+  "SCAN: __ 0001.0000.0554.0550",
+  "SCAN: __ 0012.0000.0553.0030",
+  "SCAN: __ 0100.0000.0554.0080",
+  "SCAN: __ 0020.0000.0553.0080",
+]
+
+var docfrag = document.createDocumentFragment();
+
+function updateScreen() {
+  //Shuffle the "txt" array
+  txt.push(txt.shift());
+  //Rebuild document fragment
+  txt.forEach(function(e) {
+    var p = document.createElement("p");
+    p.textContent = e;
+    docfrag.appendChild(p);
+  });
+  //Clear DOM body
+  while (console.firstChild) {
+    console.removeChild(console.firstChild);
+  }
+  console.appendChild(docfrag);
+}
 </script>
