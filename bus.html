@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bus Booking</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Hey, User</h2>
+        <p>What is your next trip?</p>
+        
+        <div class="trip-card">
+            <p>From <span class="from-city">Bangalore</span></p>
+            <p>To <span class="to-city">Chennai</span></p>
+        </div>
+        
+        <button onclick="goToPage('date.html')">Choose Trip Date</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Date</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Select Trip Date</h2>
+        <input type="date" id="trip-date">
+        <button onclick="saveDate()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Select Seats</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>How many seats?</h2>
+        <input type="number" id="seats" min="1" max="47" value="1">
+        
+        <h3>Choose Comfort</h3>
+        <select id="comfort">
+            <option>AC Bus</option>
+            <option>Non-AC</option>
+            <option>Sleeper</option>
+        </select>
+
+        <button onclick="saveSeats()">Next</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm Trip</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <h2>Trip Summary</h2>
+        <p><strong>From:</strong> <span id="summary-from"></span></p>
+        <p><strong>To:</strong> <span id="summary-to"></span></p>
+        <p><strong>Date:</strong> <span id="summary-date"></span></p>
+        <p><strong>Seats:</strong> <span id="summary-seats"></span></p>
+        <p><strong>Comfort:</strong> <span id="summary-comfort"></span></p>
+
+        <button onclick="alert('Booking Confirmed!')">Confirm</button>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+<style>
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background: #f4f4f4;
+}
+
+.container {
+    max-width: 400px;
+    margin: 50px auto;
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+    color: #333;
+}
+
+.trip-card {
+    background: #e8f0fe;
+    padding: 15px;
+    margin: 15px 0;
+    border-radius: 10px;
+}
+
+button {
+    background: orange;
+    color: white;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: darkorange;
+}
+ </style>
+
+<script>
+// Function to navigate pages
+function goToPage(page) {
+    window.location.href = page;
+}
+
+// Save date to localStorage
+function saveDate() {
+    const date = document.getElementById("trip-date").value;
+    localStorage.setItem("tripDate", date);
+    goToPage("seats.html");
+}
+
+// Save seat and comfort details
+function saveSeats() {
+    const seats = document.getElementById("seats").value;
+    const comfort = document.getElementById("comfort").value;
+
+    localStorage.setItem("seats", seats);
+    localStorage.setItem("comfort", comfort);
+    
+    goToPage("confirm.html");
+}
+
+// Load confirmation details
+window.onload = function() {
+    if (document.getElementById("summary-from")) {
+        document.getElementById("summary-from").innerText = "Bangalore";
+        document.getElementById("summary-to").innerText = "Chennai";
+        document.getElementById("summary-date").innerText = localStorage.getItem("tripDate") || "Not Selected";
+        document.getElementById("summary-seats").innerText = localStorage.getItem("seats") || "1";
+        document.getElementById("summary-comfort").innerText = localStorage.getItem("comfort") || "AC Bus";
+    }
+};
+</script>
