@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DeepSeek AI Chatbot</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        body {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+        }
+
+        .chat-container {
+            width: 90%;
+            max-width: 800px;
+            height: 80vh;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+            display: flex;
+            flex-direction: column;
+        }
+
+        .chat-header {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 20px 20px 0 0;
+            display: flex;
+            align-items: center;
+        }
+
+        .bot-icon {
+            width: 40px;
+            height: 40px;
+            background: #4e54c8;
+            border-radius: 50%;
+            margin-right: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+        }
+
+        .chat-messages {
+            flex: 1;
+            padding: 20px;
+            overflow-y: auto;
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        .message {
+            max-width: 80%;
+            padding: 15px;
+            border-radius: 15px;
+            animation: fadeIn 0.3s ease;
+        }
+
+        .user-message {
+            background: #4e54c8;
+            align-self: flex-end;
+            border-radius: 15px 15px 0 15px;
+        }
+
+        .bot-message {
+            background: rgba(255, 255, 255, 0.1);
+            align-self: flex-start;
+            border-radius: 15px 15px 15px 0;
+        }
+
+        .typing-indicator {
+            display: none;
+            padding: 15px;
+            align-self: flex-start;
+        }
+
+        .dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            margin-right: 3px;
+            background: rgba(255, 255, 255, 0.4);
+            border-radius: 50%;
+            animation: typing 1.4s infinite;
+        }
+
+        .input-container {
+            padding: 20px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 0 0 20px 20px;
+            display: flex;
+            gap: 10px;
+        }
+
+        input {
+            flex: 1;
+            padding: 15px;
+            border: none;
+            border-radius: 10px;
+            background: rgba(255, 255, 255, 0.05);
+            color: white;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 15px 25px;
+            border: none;
+            border-radius: 10px;
+            background: #4e54c8;
+            color: white;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #6a6fcf;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @keyframes typing {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-5px); }
+        }
+
+        @media (max-width: 600px) {
+            .chat-container {
+                width: 95%;
+                height: 90vh;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <div class="bot-icon">AI</div>
+            <div>
+                <h2>DeepSeek AI</h2>
+                <p class="status">Online</p>
+            </div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message bot-message">
+                Hello! I'm DeepSeek AI. How can I assist you today?
+            </div>
+        </div>
+        <div class="typing-indicator" id="typing">
+            <div class="dot"></div>
+            <div class="dot" style="animation-delay: 0.2s"></div>
+            <div class="dot" style="animation-delay: 0.4s"></div>
+        </div>
+        <div class="input-container">
+            <input type="text" id="user-input" placeholder="Type your message...">
+            <button onclick="sendMessage()">Send</button>
+        </div>
+    </div>
+
+    <script>
+        const chatMessages = document.getElementById('chat-messages');
+        const userInput = document.getElementById('user-input');
+        const typingIndicator = document.getElementById('typing');
+
+        // Handle Enter key
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendMessage();
+        });
+
+        function sendMessage() {
+            const message = userInput.value.trim();
+            if (!message) return;
+
+            // Add user message
+            addMessage(message, 'user');
+            userInput.value = '';
+
+            // Show typing indicator
+            showTyping(true);
+
+            // Simulate AI response (replace with actual API call)
+            setTimeout(() => {
+                const response = generateResponse(message);
+                addMessage(response, 'bot');
+                showTyping(false);
+            }, 1500);
+        }
+
+        function addMessage(text, sender) {
+            const messageDiv = document.createElement('div');
+            messageDiv.classList.add('message', `${sender}-message`);
+            messageDiv.textContent = text;
+            chatMessages.appendChild(messageDiv);
+            chatMessages.scrollTop = chatMessages.scrollHeight;
+        }
+
+        function showTyping(show) {
+            typingIndicator.style.display = show ? 'block' : 'none';
+        }
+
+        function generateResponse(userMessage) {
+            // Replace this with actual API integration
+            const responses = {
+                hello: "Hello! How can I help you today?",
+                help: "I'm here to help with any questions you have!",
+                bye: "Goodbye! Have a great day!",
+                default: "I understand. Could you please elaborate on that?"
+            };
+
+            const lowerMsg = userMessage.toLowerCase();
+            return responses[lowerMsg] || responses['default'];
+        }
+    </script>
+</body>
+</html>
