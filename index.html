@@ -1,483 +1,577 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>𝐈𝐭𝐬 ⚡ 𝐍𝐢𝐡𝐚𝐥 𝐊𝐫𝐢𝐬𝐡𝐧𝐚</title>
-
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./style.css">
-
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coming Soon</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
-
 <body>
-
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-
-
-<!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="./assets/images/my-avatar.png" alt= "Nihal Krishna" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Nihal Krishna">Nihal Krishna</h1>
-
-          <p class="title">Programmer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:nkverifiedyt@gmail.com" class="contact-link" nkverifiedyt@gmail.com </a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="unknown" class="contact-link">Not Revealed</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="Reveal soon">Reveal soon</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Current Location</p>
-
-              <address>India</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-          <li class="social-item">
-            <a href="https://nkverified.github.io/Nihal-Krishna-web" class="social-link">
-              <ion-icon name="logo-github"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://t.me/NK_V2_BOT" class="social-link">
-              <ion-icon name="logo-twitter"></ion-icon>
-            </a>
-          </li>
-
-          <li class="social-item">
-            <a href="https://www.instagram.com/n4ni_hal_?igsh=bnBmaGs2N2J5Zm1i" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>Home</button>
-          </li>
-
-                 <li class="navbar-item">
-            <a href="contact.html" class="navbar-link" data-nav-link>Contact</a>
-          </li>
-
- <li class="navbar-item">
-            <a href="link.html" class="navbar-link" data-nav-link>Links</a>
-          </li>
-
-        <li class="navbar-item">
-            <a href="about.html" class="navbar-link" data-nav-link>About</a>
-          </li>
-
-         
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-           Hello, I am Nihal Krishna, a passionate programmer from India with extensive expertise across all major programming languages. My journey in technology has been fueled by an insatiable curiosity and a commitment to mastering the art of coding. Whether it's web development, software engineering, automation, or artificial intelligence, I have honed my skills to design, build, and optimize innovative solutions for diverse challenges.
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Graphic designing</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>     
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full stack Developer</h4>
-
-                <p class="service-item-text">
-                  High-quality development of website,bots,apps etc. at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title"> Technician </h4>
-
-                <p class="service-item-text">
-                  Professional Technician of mobile and other deveices.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>John</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Nihal's ability to simplify complex problems is extraordinary. He designed a custom automation tool that saved us hours of manual work.
-                  </p>
+    <section class="container">
+        <div class="background"></div>
+        <nav class="nav-links">
+            <a href="#" class="nav-link active">Home</a>
+            <a href="#" class="nav-link">About</a>
+            <a href="#" class="nav-link">Contact</a>
+        </nav>
+        <header class="logo">DevFront.</header>
+        <div class="center-content">
+            <h1>WELCOME TO DEVFRONT</h1>
+            <p class="description">
+                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
+                dolore magna aliqua".
+            </p>
+            <div class="countdown">
+                <h2>LAUNCHING IN</h2>
+                <div class="time-content">
+                    <div class="time days">
+                        <span class="number" id="days">00</span>
+                        <span class="text">DAYS</span>
+                    </div>
+                    <div class="time hours">
+                        <span class="number" id="hours">00</span>
+                        <span class="text">HOURS</span>
+                    </div>
+                    <div class="time minutes">
+                        <span class="number" id="minutes">00</span>
+                        <span class="text">MINUTES</span>
+                    </div>
+                    <div class="time seconds">
+                        <span class="number" id="seconds">00</span>
+                        <span class="text">SECONDS</span>
+                    </div>
                 </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title> Jessy </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                   Nihal Krishna is a rare talent who blends technical brilliance with a client-focused approach. His ability to work across various programming languages gives him an edge in delivering innovative and tailored solutions.
-                  </p>
+                <div class="email-content">
+                    <p>Subscribe now to get the latest updates!</p>
+                    <a href="#" onclick="toggle();">NOTIFY ME!</a>
                 </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title> Andrea </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                  Nihal developed a chatbot for our business that has significantly improved customer engagement. His understanding of AI and machine learning, combined with his programming expertise, brought the project to life.
-                  </p>
+            </div>   
+            <div class="newsletter">
+                <h2>Stay Tuned</h2>
+                <p>Get Notified at Launch</p>
+                <div class="input-box">
+                    <form>
+                        <input type="email" name= "" required= "" placeholder="   Email address">
+                        <input type="submit" value="Submit">
+                    </form>
                 </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Prabhakar" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    In addition to being a skilled programmer, Nihal Krishna is an exceptional graphic designer known for creating visually striking and meaningful designs.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Sumesh" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+                <img src="Assets/close.png" class="close" onclick="toggle();">
             </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Sumesh</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                 Nihal Krishna is a phenomenal programmer who exceeded all expectations. He not only delivered the project ahead of schedule but also ensured it was optimized and user-friendly.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
+        </div> 
+    </section>
+    <div class="social-icons">
+        <a href="#" class="social-icon" id="facebook" data-name="Facebook"><img src="Assets/Facebook.png" alt="Facebook"></a>
+        <a href="#" class="social-icon" id="twitter" data-name="Twitter"><img src="Assets/Twitter.png" alt="Twitter"></a>
+        <a href="#" class="social-icon" id="instagram" data-name="Instagram"><img src="Assets/Instagram.png" alt="Instagram"></a>
+        <a href="#" class="social-icon" id="behance" data-name="Behance"><img src="Assets/Behance.png" alt="Behance"></a>
+        <a href="#" class="social-icon" id="dribbble" data-name="Dribbble"><img src="Assets/Dribble.png" alt="Dribbble"></a>
     </div>
-
-  </main>
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
+    <script src="scripts.js"></script>
 </body>
-
 </html>
+
+<style>
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+}
+
+body, html {
+    margin: 0;
+    padding: 0;
+    font-family: 'Lucida Sans', sans-serif;
+    color: white;
+    height: 100%;
+    overflow: hidden;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+/* Background Image */
+.background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('Assets/image2.jpg');
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Container */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Navigation Links */
+.nav-links {
+    position: absolute;
+    top: 20px;
+    left: 20px;
+}
+
+.nav-link {
+    margin-right: 20px;
+    font-size: 16px;
+    color: white;
+    text-decoration: none;
+    position: relative;
+}
+
+.nav-link:hover {
+    color: #f1e1bc;
+}
+
+.nav-link:hover::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 100%;
+    height: 2px;
+    background-color: #f1e1bc;
+}
+
+/* Logo */
+.logo {
+    position: absolute;
+    font-size: 20px;
+    font-weight: 600;
+    right: 20px;
+    top: 20px;
+}
+
+/* Countdown section */
+.countdown h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+    letter-spacing: 2px;
+}
+
+.time-content {
+    display: flex;
+    column-gap: 30px;
+    justify-content: center;
+}
+
+.time {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: #f6f6f629;
+    margin-right: 20px;
+    min-width: 110px;
+    font-weight: 700;
+    padding: 10px 5px 15px;
+    border-radius: 5px;
+}
+
+.time .number {
+    font-size: 40px;
+    font-weight: 500;
+}
+
+.time .text {
+    font-size: 15px;
+    font-weight: 400;
+    text-transform: capitalize;
+    color: rgb(255, 254, 254);
+    text-decoration: solid;
+}
+
+/* Center Content */
+.center-content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    animation: fadeIn 1s ease-in-out;
+}
+
+.center-content h1 {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.description {
+    font-size: 16px;
+    max-width: 600px;
+    margin-bottom: 30px;
+    text-align: center;
+    color: #f1e1bc;
+}
+
+.email-content {
+    margin-top: 50px;
+}
+
+.email-content p {
+    font-size: 14px;
+    margin-bottom: 10px;
+}
+
+.email-content a {
+    outline: none;
+    border: 1px solid rgb(193, 139, 247);
+    border-radius: 5px;
+    background-color: rgba(226, 166, 188, 0.105);
+    color: rgb(255, 255, 255);
+    padding: 10px 30px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    display: inline-block;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    margin-top: 10px;
+    letter-spacing: 2px;
+    text-decoration: none;
+}
+
+.email-content a:hover {
+    background-color: #9d6787;
+    color: #f6f6f6;
+    transform: scale(1.05);
+}
+
+/* Newsletter */
+.newsletter {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    padding: 60px;
+    background: #83638c;
+    z-index: 10000;
+    box-shadow: 0 0 0 100vh rgba(49, 39, 71, 0.468);
+    border-radius: 15px;
+    visibility: hidden;
+    opacity: 0;
+    transition: 0.5s ease-out;
+}
+
+.newsletter h2 {
+    font-size: 48px;
+    color: #f1e1bc;
+}
+
+.newsletter p {
+    font-size: 20px;
+    color: #f1e1bc;
+}
+
+.newsletter .input-box {
+    margin-top: 20px;
+}
+
+.newsletter .input-box input {
+    padding: 10px;
+    outline: none;
+    width: 250px;
+    font-size: 18px;
+    border: 1px solid #999;
+    border-radius: 10px;
+}
+
+.newsletter.active {
+    visibility: visible;
+    opacity: 1;
+}
+
+.newsletter .close {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+}
+
+.newsletter .input-box input[type="submit"] {
+    padding: 10px;
+    outline: none;
+    width: 100px;
+    color: #4f4371;
+    background-color: #ffffff;
+    font-size: 18px;
+    border: 1px solid #a29b9b;
+    border-radius: 10px;
+    letter-spacing: 2px;
+    box-sizing: border-box;
+    cursor: pointer;
+}
+
+
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Social Icons */
+.social-icons {
+    display: flex;
+    position: absolute;
+    right: 20px;
+    top: 250px;
+    flex-direction: column;
+    row-gap: 20px;
+}
+
+.social-icons .social-icon img {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.3s ease;
+}
+
+.social-icons .social-icon img:hover {
+    transform: scale(1.2);
+}
+
+.social-icons .social-icon::after {
+    content: attr(data-name);
+    position: absolute;
+    right: 40px;
+    opacity: 0;
+    background-color: transparent;
+    color: #f1e1bc;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 15px;
+    white-space: nowrap;
+    transition: transform 0.3s ease;
+    pointer-events: none;
+    outline: none;
+}
+
+.social-icons .social-icon:hover::after {
+    opacity: 1;
+}
+
+
+
+
+
+@media (max-width: 991px) {
+    .center-content  {     
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: min(800px, 90%);
+        
+    }
+
+    .center-content h1 {
+       
+        font-size: 32px;
+    }
+
+    .description {
+        font-size: 14px;
+        padding: 0 20px;
+    }
+
+
+    .social-icons {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: 20px;
+        align-self: center;
+        flex-direction: row;
+        justify-content: space-evenly;
+        width: 100%;
+    }
+    .social-icons .social-icon img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+    }
+    .social-icons .social-icon {
+        position: relative; 
+    }
+    .social-icons .social-icon::after {
+        content: attr(data-name);
+        position: absolute;
+        bottom: 50px; 
+        left: 50%;
+        transform: translateX(-50%);
+        opacity: 0;
+        background-color: transparent;
+        color: #f1e1bc;
+        font-size: 15px;
+        white-space: nowrap;
+        transition: opacity 0.3s ease;
+        pointer-events: none;
+    }
+    .social-icons .social-icon img:hover {
+        transform: scale(1.2);
+    }
+    .social-icons .social-icon:hover::after {
+        opacity: 1;
+    }
+    .newsletter {
+        width: 90%;
+        padding: 30px; 
+    }
+    .newsletter h2 {
+        font-size: 36px; 
+    }
+    .newsletter p {
+        font-size: 16px; 
+    }
+
+    .newsletter .input-box input {
+        width: 200px; 
+        padding: 8px; 
+        font-size: 16px; 
+    }
+
+    .newsletter .input-box input[type="submit"] {
+        width: 80px; 
+        padding: 8px; 
+        font-size: 16px; 
+    }
+
+    .time-content {
+        column-gap: 10px;
+        justify-content: center;
+    }
+
+    .time {
+        min-width: 80px;
+        padding: 5px 5px 10px;
+    }
+
+    .time .number {
+        font-size: 30px;
+    }
+
+    .time .text {
+        font-size: 12px;
+    }
+}
+
+/* Extra Small screens */
+@media (max-width: 480px) {
+    .container {
+        padding: 20px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .center-content h1 {
+        font-size: 24px;
+    }
+
+    .description {
+        font-size: 12px;
+        padding: 0 10px;
+    }
+
+    .social-icons {
+        position: fixed;
+        bottom: 20px;
+        left: 50%;
+        transform: translateX(-50%);
+        flex-direction: row;
+    }
+    .social-icons .social-icon img {
+        width: 30px;
+        height: 30px;
+        transition: transform 0.3s ease;
+    }
+    .social-icons .social-icon img:hover {
+        transform: scale(1.2);
+    }
+
+    .newsletter {
+        width: 90%; 
+        padding: 20px; 
+        box-sizing: border-box; 
+    }
+
+    .newsletter h2 {
+        font-size: 28px; 
+    }
+
+    .newsletter p {
+        font-size: 14px;
+    }
+
+    .newsletter .input-box input {
+        width: 150px; 
+        padding: 6px; 
+        font-size: 14px; 
+    }
+
+    .newsletter .input-box input[type="submit"] {
+        width: 70px;
+        padding: 6px; 
+        font-size: 14px; 
+    }
+
+    .time-content {
+        column-gap: 5px;
+    }
+
+    .time {
+        min-width: 60px;
+        padding: 5px;
+    }
+
+    .time .number {
+        font-size: 20px;
+    }
+
+    .time .text {
+        font-size: 10px;
+    }
+}
+</style>
+  <script>
+const targetDate = new Date("2024-12-31T00:00:00").getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const distance = targetDate - now;
+
+    if (distance < 0) {
+        clearInterval(countdownInterval);
+        return;
+    }
+
+    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+    document.getElementById("days").textContent = days.toString().padStart(2, '0');
+    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
+    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
+    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
+}
+
+const countdownInterval = setInterval(updateCountdown, 1000);
+
+function toggle() { 
+    var newsletter = document.querySelector('.newsletter');
+    newsletter.classList.toggle('active');
+}
+</script>
