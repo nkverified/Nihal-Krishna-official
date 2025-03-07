@@ -46,84 +46,39 @@ body {
     justify-content: center;
     align-items: center;
     height: 100vh;
-    overflow: hidden;
     text-align: center;
 }
 
 .container {
-    position: relative;
-    text-align: center;
-    width: 100%;
-}
-
-.content {
-    position: relative;
-    z-index: 2;
-    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 90%;
+    max-width: 350px;
 }
 
 .subtext {
-    font-size: 14px;
+    font-size: 12px;
     letter-spacing: 2px;
     color: rgba(255, 255, 255, 0.6);
 }
 
 h1 {
-    font-size: 40px;
-    margin: 20px 0;
-    letter-spacing: 5px;
+    font-size: 28px;
+    margin: 10px 0;
+    letter-spacing: 4px;
 }
 
 #countdown {
     display: flex;
     justify-content: center;
-    gap: 15px;
-    margin: 20px 0;
+    gap: 10px;
+    margin: 15px 0;
 }
 
 .time-box {
     background: rgba(255, 255, 255, 0.1);
-    padding: 15px;
-    border-radius: 10px;
-    width: 80px;
-}
-
-.time-box span {
-    font-size: 28px;
-    font-weight: bold;
-    display: block;
-}
-
-.time-box p {
-    font-size: 14px;
-    opacity: 0.7;
-}
-
-.progress-bar {
-    position: relative;
-    width: 300px;
-    height: 10px;
-    background: rgba(255, 255, 255, 0.2);
-    border-radius: 10px;
-    margin: 20px auto;
-    overflow: hidden;
-}
-
-.progress {
-    width: 67%;
-    height: 100%;
-    background: linear-gradient(to right, #ff416c, #ff4b2b);
-    border-radius: 10px;
-    transition: width 1s ease-in-out;
-}
-
-.progress-text {
-    position: absolute;
-    top: -25px;
-    right: 5px;
-    font-size: 14px;
-    color: #ff4b2b;
-}
 </style>
 
 <script>
