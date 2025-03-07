@@ -7,571 +7,112 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <section class="container">
-        <div class="background"></div>
-        <nav class="nav-links">
-            <a href="#" class="nav-link active">Home</a>
-            <a href="#" class="nav-link">About</a>
-            <a href="#" class="nav-link">Contact</a>
-        </nav>
-        <header class="logo">DevFront.</header>
-        <div class="center-content">
-            <h1>WELCOME TO DEVFRONT</h1>
-            <p class="description">
-                "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et 
-                dolore magna aliqua".
-            </p>
-            <div class="countdown">
-                <h2>LAUNCHING IN</h2>
-                <div class="time-content">
-                    <div class="time days">
-                        <span class="number" id="days">00</span>
-                        <span class="text">DAYS</span>
-                    </div>
-                    <div class="time hours">
-                        <span class="number" id="hours">00</span>
-                        <span class="text">HOURS</span>
-                    </div>
-                    <div class="time minutes">
-                        <span class="number" id="minutes">00</span>
-                        <span class="text">MINUTES</span>
-                    </div>
-                    <div class="time seconds">
-                        <span class="number" id="seconds">00</span>
-                        <span class="text">SECONDS</span>
-                    </div>
-                </div>
-                <div class="email-content">
-                    <p>Subscribe now to get the latest updates!</p>
-                    <a href="#" onclick="toggle();">NOTIFY ME!</a>
-                </div>
-            </div>   
-            <div class="newsletter">
-                <h2>Stay Tuned</h2>
-                <p>Get Notified at Launch</p>
-                <div class="input-box">
-                    <form>
-                        <input type="email" name= "" required= "" placeholder="   Email address">
-                        <input type="submit" value="Submit">
-                    </form>
-                </div>
-                <img src="Assets/close.png" class="close" onclick="toggle();">
+    <div class="container">
+        <div class="planet"></div>
+        <div class="content">
+            <p class="subtext">SITE UNDER RECONSTRUCTION</p>
+            <h1>COMING SOON</h1>
+            <div class="progress-bar">
+                <div class="progress" id="progress"></div>
+                <span class="progress-text">67%</span>
             </div>
-        </div> 
-    </section>
-    <div class="social-icons">
-        <a href="#" class="social-icon" id="facebook" data-name="Facebook"><img src="Assets/Facebook.png" alt="Facebook"></a>
-        <a href="#" class="social-icon" id="twitter" data-name="Twitter"><img src="Assets/Twitter.png" alt="Twitter"></a>
-        <a href="#" class="social-icon" id="instagram" data-name="Instagram"><img src="Assets/Instagram.png" alt="Instagram"></a>
-        <a href="#" class="social-icon" id="behance" data-name="Behance"><img src="Assets/Behance.png" alt="Behance"></a>
-        <a href="#" class="social-icon" id="dribbble" data-name="Dribbble"><img src="Assets/Dribble.png" alt="Dribbble"></a>
+        </div>
     </div>
-    <script src="scripts.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
-
 <style>
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;600&display=swap');
+
 * {
+    margin: 0;
+    padding: 0;
     box-sizing: border-box;
-    padding: 0;
-    margin: 0;
 }
 
-body, html {
-    margin: 0;
-    padding: 0;
-    font-family: 'Lucida Sans', sans-serif;
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #02020a;
     color: white;
-    height: 100%;
-    overflow: hidden;
-    transition: background-color 0.3s, color 0.3s;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-/* Background Image */
-.background {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-image: url('Assets/image2.jpg');
-    background-size: cover;
-    background-position: center;
-    z-index: -1;
-}
-
-/* Container */
-.container {
     display: flex;
-    flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
-    text-align: center;
-    padding: 20px;
+    overflow: hidden;
 }
 
-/* Navigation Links */
-.nav-links {
-    position: absolute;
-    top: 20px;
-    left: 20px;
-}
-
-.nav-link {
-    margin-right: 20px;
-    font-size: 16px;
-    color: white;
-    text-decoration: none;
+.container {
     position: relative;
-}
-
-.nav-link:hover {
-    color: #f1e1bc;
-}
-
-.nav-link:hover::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -3px;
-    width: 100%;
-    height: 2px;
-    background-color: #f1e1bc;
-}
-
-/* Logo */
-.logo {
-    position: absolute;
-    font-size: 20px;
-    font-weight: 600;
-    right: 20px;
-    top: 20px;
-}
-
-/* Countdown section */
-.countdown h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-    letter-spacing: 2px;
-}
-
-.time-content {
-    display: flex;
-    column-gap: 30px;
-    justify-content: center;
-}
-
-.time {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    background: #f6f6f629;
-    margin-right: 20px;
-    min-width: 110px;
-    font-weight: 700;
-    padding: 10px 5px 15px;
-    border-radius: 5px;
-}
-
-.time .number {
-    font-size: 40px;
-    font-weight: 500;
-}
-
-.time .text {
-    font-size: 15px;
-    font-weight: 400;
-    text-transform: capitalize;
-    color: rgb(255, 254, 254);
-    text-decoration: solid;
-}
-
-/* Center Content */
-.center-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    animation: fadeIn 1s ease-in-out;
-}
-
-.center-content h1 {
-    font-size: 40px;
-    margin-bottom: 20px;
-}
-
-.description {
-    font-size: 16px;
-    max-width: 600px;
-    margin-bottom: 30px;
     text-align: center;
-    color: #f1e1bc;
+    width: 100%;
 }
 
-.email-content {
+.planet {
+    position: absolute;
+    top: 30%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle at top, #2a2a72, #1b1b3a);
+    border-radius: 50%;
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+    animation: rotatePlanet 10s infinite linear;
+}
+
+@keyframes rotatePlanet {
+    0% { transform: translate(-50%, -50%) rotate(0deg); }
+    100% { transform: translate(-50%, -50%) rotate(360deg); }
+}
+
+.content {
+    position: relative;
+    z-index: 2;
     margin-top: 50px;
 }
 
-.email-content p {
+.subtext {
     font-size: 14px;
-    margin-bottom: 10px;
-}
-
-.email-content a {
-    outline: none;
-    border: 1px solid rgb(193, 139, 247);
-    border-radius: 5px;
-    background-color: rgba(226, 166, 188, 0.105);
-    color: rgb(255, 255, 255);
-    padding: 10px 30px;
-    cursor: pointer;
-    transition: background-color 0.3s ease, transform 0.3s ease;
-    display: inline-block;
-    text-align: center;
-    justify-content: center;
-    align-items: center;
-    margin-top: 10px;
     letter-spacing: 2px;
-    text-decoration: none;
+    color: rgba(255, 255, 255, 0.6);
 }
 
-.email-content a:hover {
-    background-color: #9d6787;
-    color: #f6f6f6;
-    transform: scale(1.05);
+h1 {
+    font-size: 40px;
+    margin: 20px 0;
+    letter-spacing: 5px;
 }
 
-/* Newsletter */
-.newsletter {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    width: 500px;
-    padding: 60px;
-    background: #83638c;
-    z-index: 10000;
-    box-shadow: 0 0 0 100vh rgba(49, 39, 71, 0.468);
-    border-radius: 15px;
-    visibility: hidden;
-    opacity: 0;
-    transition: 0.5s ease-out;
-}
-
-.newsletter h2 {
-    font-size: 48px;
-    color: #f1e1bc;
-}
-
-.newsletter p {
-    font-size: 20px;
-    color: #f1e1bc;
-}
-
-.newsletter .input-box {
-    margin-top: 20px;
-}
-
-.newsletter .input-box input {
-    padding: 10px;
-    outline: none;
-    width: 250px;
-    font-size: 18px;
-    border: 1px solid #999;
+.progress-bar {
+    position: relative;
+    width: 300px;
+    height: 10px;
+    background: rgba(255, 255, 255, 0.2);
     border-radius: 10px;
+    margin: 20px auto;
+    overflow: hidden;
 }
 
-.newsletter.active {
-    visibility: visible;
-    opacity: 1;
-}
-
-.newsletter .close {
-    position: absolute;
-    top: 20px;
-    right: 20px;
-    width: 40px;
-    height: 40px;
-    cursor: pointer;
-}
-
-.newsletter .input-box input[type="submit"] {
-    padding: 10px;
-    outline: none;
-    width: 100px;
-    color: #4f4371;
-    background-color: #ffffff;
-    font-size: 18px;
-    border: 1px solid #a29b9b;
+.progress {
+    width: 67%;
+    height: 100%;
+    background: linear-gradient(to right, #ff416c, #ff4b2b);
     border-radius: 10px;
-    letter-spacing: 2px;
-    box-sizing: border-box;
-    cursor: pointer;
+    transition: width 1s ease-in-out;
 }
 
-
-
-/* Fade-in Animation */
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* Social Icons */
-.social-icons {
-    display: flex;
+.progress-text {
     position: absolute;
-    right: 20px;
-    top: 250px;
-    flex-direction: column;
-    row-gap: 20px;
-}
-
-.social-icons .social-icon img {
-    width: 30px;
-    height: 30px;
-    transition: transform 0.3s ease;
-}
-
-.social-icons .social-icon img:hover {
-    transform: scale(1.2);
-}
-
-.social-icons .social-icon::after {
-    content: attr(data-name);
-    position: absolute;
-    right: 40px;
-    opacity: 0;
-    background-color: transparent;
-    color: #f1e1bc;
-    padding: 5px 10px;
-    border-radius: 5px;
-    font-size: 15px;
-    white-space: nowrap;
-    transition: transform 0.3s ease;
-    pointer-events: none;
-    outline: none;
-}
-
-.social-icons .social-icon:hover::after {
-    opacity: 1;
-}
-
-
-
-
-
-@media (max-width: 991px) {
-    .center-content  {     
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        width: min(800px, 90%);
-        
-    }
-
-    .center-content h1 {
-       
-        font-size: 32px;
-    }
-
-    .description {
-        font-size: 14px;
-        padding: 0 20px;
-    }
-
-
-    .social-icons {
-        position: relative;
-        top: auto;
-        right: auto;
-        bottom: 20px;
-        align-self: center;
-        flex-direction: row;
-        justify-content: space-evenly;
-        width: 100%;
-    }
-    .social-icons .social-icon img {
-        width: 30px;
-        height: 30px;
-        transition: transform 0.3s ease;
-    }
-    .social-icons .social-icon {
-        position: relative; 
-    }
-    .social-icons .social-icon::after {
-        content: attr(data-name);
-        position: absolute;
-        bottom: 50px; 
-        left: 50%;
-        transform: translateX(-50%);
-        opacity: 0;
-        background-color: transparent;
-        color: #f1e1bc;
-        font-size: 15px;
-        white-space: nowrap;
-        transition: opacity 0.3s ease;
-        pointer-events: none;
-    }
-    .social-icons .social-icon img:hover {
-        transform: scale(1.2);
-    }
-    .social-icons .social-icon:hover::after {
-        opacity: 1;
-    }
-    .newsletter {
-        width: 90%;
-        padding: 30px; 
-    }
-    .newsletter h2 {
-        font-size: 36px; 
-    }
-    .newsletter p {
-        font-size: 16px; 
-    }
-
-    .newsletter .input-box input {
-        width: 200px; 
-        padding: 8px; 
-        font-size: 16px; 
-    }
-
-    .newsletter .input-box input[type="submit"] {
-        width: 80px; 
-        padding: 8px; 
-        font-size: 16px; 
-    }
-
-    .time-content {
-        column-gap: 10px;
-        justify-content: center;
-    }
-
-    .time {
-        min-width: 80px;
-        padding: 5px 5px 10px;
-    }
-
-    .time .number {
-        font-size: 30px;
-    }
-
-    .time .text {
-        font-size: 12px;
-    }
-}
-
-/* Extra Small screens */
-@media (max-width: 480px) {
-    .container {
-        padding: 20px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
-
-    .center-content h1 {
-        font-size: 24px;
-    }
-
-    .description {
-        font-size: 12px;
-        padding: 0 10px;
-    }
-
-    .social-icons {
-        position: fixed;
-        bottom: 20px;
-        left: 50%;
-        transform: translateX(-50%);
-        flex-direction: row;
-    }
-    .social-icons .social-icon img {
-        width: 30px;
-        height: 30px;
-        transition: transform 0.3s ease;
-    }
-    .social-icons .social-icon img:hover {
-        transform: scale(1.2);
-    }
-
-    .newsletter {
-        width: 90%; 
-        padding: 20px; 
-        box-sizing: border-box; 
-    }
-
-    .newsletter h2 {
-        font-size: 28px; 
-    }
-
-    .newsletter p {
-        font-size: 14px;
-    }
-
-    .newsletter .input-box input {
-        width: 150px; 
-        padding: 6px; 
-        font-size: 14px; 
-    }
-
-    .newsletter .input-box input[type="submit"] {
-        width: 70px;
-        padding: 6px; 
-        font-size: 14px; 
-    }
-
-    .time-content {
-        column-gap: 5px;
-    }
-
-    .time {
-        min-width: 60px;
-        padding: 5px;
-    }
-
-    .time .number {
-        font-size: 20px;
-    }
-
-    .time .text {
-        font-size: 10px;
-    }
+    top: -25px;
+    right: 5px;
+    font-size: 14px;
+    color: #ff4b2b;
 }
 </style>
-  <script>
-const targetDate = new Date("2024-12-31T00:00:00").getTime();
 
-function updateCountdown() {
-    const now = new Date().getTime();
-    const distance = targetDate - now;
-
-    if (distance < 0) {
-        clearInterval(countdownInterval);
-        return;
-    }
-
-    const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-    const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-    const seconds = Math.floor((distance % (1000 * 60)) / 1000);
-
-    document.getElementById("days").textContent = days.toString().padStart(2, '0');
-    document.getElementById("hours").textContent = hours.toString().padStart(2, '0');
-    document.getElementById("minutes").textContent = minutes.toString().padStart(2, '0');
-    document.getElementById("seconds").textContent = seconds.toString().padStart(2, '0');
-}
-
-const countdownInterval = setInterval(updateCountdown, 1000);
-
-function toggle() { 
-    var newsletter = document.querySelector('.newsletter');
-    newsletter.classList.toggle('active');
-}
+<script>
+document.addEventListener("DOMContentLoaded", function() {
+    let progressBar = document.getElementById("progress");
+    progressBar.style.width = "67%";
+});
 </script>
