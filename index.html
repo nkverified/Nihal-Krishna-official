@@ -1,259 +1,483 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nihal Krishna - Cyber Reboot</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        /* Global Styles */
-        :root {
-            --neon-green: #0f0;
-            --cyber-cyan: #00f3ff;
-            --hacker-bg: #000;
-            --glow: 0 0 20px var(--neon-green);
-        }
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>𝐈𝐭𝐬 ⚡ 𝐍𝐢𝐡𝐚𝐥 𝐊𝐫𝐢𝐬𝐡𝐧𝐚</title>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+  <!--
+    - custom css link
+  -->
+  <link rel="stylesheet" href="./style.css">
 
-        body {
-            background: var(--hacker-bg);
-            font-family: 'Courier New', monospace;
-            color: var(--neon-green);
-            overflow: hidden;
-        }
-
-        /* Live Wallpaper Animation */
-        .live-wallpaper {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1;
-            background: radial-gradient(circle, rgba(0, 255, 0, 0.05) 10%, transparent 50%);
-            animation: pulseWallpaper 5s infinite alternate;
-        }
-
-        @keyframes pulseWallpaper {
-            0% { transform: scale(1); opacity: 0.1; }
-            100% { transform: scale(1.5); opacity: 0.3; }
-        }
-
-        /* Container */
-        .cyber-container {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            padding: 2rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        /* Header */
-        .cyber-header {
-            text-align: center;
-            margin-bottom: 4rem;
-            position: relative;
-        }
-
-        .cyber-title {
-            font-size: 4rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5rem;
-            text-shadow: var(--glow);
-            animation: textGlitch 3s infinite;
-        }
-
-        @keyframes textGlitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-3px, 3px); opacity: 0.8; }
-            40% { transform: translate(3px, -3px); opacity: 0.6; }
-            60% { transform: translate(-3px, 1px); opacity: 0.8; }
-            80% { transform: translate(1px, -1px); opacity: 0.6; }
-            100% { transform: translate(0); opacity: 1; }
-        }
-
-        /* Countdown Timer */
-        .cyber-countdown {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 2rem;
-            margin: 4rem 0;
-            perspective: 1000px;
-        }
-
-        .countdown-segment {
-            background: rgba(0, 0, 0, 0.5);
-            padding: 2rem;
-            border: 2px solid var(--neon-green);
-            border-radius: 5px;
-            text-align: center;
-            position: relative;
-            transform-style: preserve-3d;
-            transition: all 0.3s ease;
-        }
-
-        .countdown-segment:hover {
-            transform: rotateX(10deg) rotateY(10deg) translateZ(20px);
-            box-shadow: 0 0 40px var(--neon-green);
-        }
-
-        .segment-number {
-            font-size: 4rem;
-            font-weight: 700;
-            background: linear-gradient(45deg, var(--neon-green), var(--cyber-cyan));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            animation: numberPulse 2s infinite;
-        }
-
-        @keyframes numberPulse {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.1); }
-        }
-
-        /* Terminal */
-        .cyber-terminal {
-            border: 2px solid var(--neon-green);
-            padding: 2rem;
-            width: 80%;
-            max-width: 800px;
-            margin-top: 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .terminal-text {
-            white-space: nowrap;
-            overflow: hidden;
-            border-right: 2px solid var(--neon-green);
-            animation: typing 3s steps(40), blink 0.5s step-end infinite alternate;
-        }
-
-        @keyframes typing {
-            from { width: 0; }
-            to { width: 100%; }
-        }
-
-        @keyframes blink {
-            50% { border-color: transparent; }
-        }
-
-        /* Instagram Icon */
-        .social-hub {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            display: flex;
-            gap: 1.5rem;
-        }
-
-        .cyber-social {
-            color: var(--neon-green);
-            font-size: 2rem;
-            text-decoration: none;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .cyber-social:hover {
-            color: var(--cyber-cyan);
-            transform: translateY(-5px);
-            filter: drop-shadow(0 0 10px var(--neon-green));
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .cyber-title { font-size: 2.5rem; }
-            .cyber-countdown { grid-template-columns: 1fr 1fr; }
-            .segment-number { font-size: 2.5rem; }
-        }
-    </style>
+  <!--
+    - google font link
+  -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
 </head>
+
 <body>
-    <!-- Live Wallpaper Animation -->
-    <div class="live-wallpaper"></div>
 
-    <!-- Main Content -->
-    <div class="cyber-container">
-        <div class="cyber-header">
-            
-            <h2 class="cyber-title">Nihal Krishna</h2>
+  <!--
+    - #MAIN
+  -->
+
+  <main>
+
+
+
+<!--
+      - #SIDEBAR
+    -->
+
+    <aside class="sidebar" data-sidebar>
+
+      <div class="sidebar-info">
+
+        <figure class="avatar-box">
+          <img src="./assets/images/my-avatar.png" alt= "Nihal Krishna" width="80">
+        </figure>
+
+        <div class="info-content">
+          <h1 class="name" title="Nihal Krishna">Nihal Krishna</h1>
+
+          <p class="title">Programmer</p>
         </div>
 
-        <!-- Countdown Timer -->
-        <div class="cyber-countdown">
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-days">00</div>
-                <div class="segment-label">Days</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-hours">00</div>
-                <div class="segment-label">Hours</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-minutes">00</div>
-                <div class="segment-label">Minutes</div>
-            </div>
-            <div class="countdown-segment">
-                <div class="segment-number" id="cd-seconds">00</div>
-                <div class="segment-label">Seconds</div>
-            </div>
-        </div>
+        <button class="info_more-btn" data-sidebar-btn>
+          <span>Show Contacts</span>
 
-        <!-- Terminal -->
-        <div class="cyber-terminal">
-            <p class="terminal-text">
-                > Initializing neural network... [██████ 85%]
-                Decrypting mainframe access... [COMPROMISED]
-                Bypassing security protocols... [SUCCESS]
-            </p>
-        </div>
+          <ion-icon name="chevron-down"></ion-icon>
+        </button>
 
-        <!-- Instagram Icon -->
-        <div class="social-hub">
-            <a href="https://www.instagram.com/n4ni_hal_?igsh=bnBmaGs2N2J5Zm1i" 
-               class="cyber-social"
-               target="_blank"
-               rel="noopener noreferrer">
-                <i class="fab fa-instagram"></i>
+      </div>
+
+      <div class="sidebar-info_more">
+
+        <div class="separator"></div>
+
+        <ul class="contacts-list">
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="mail-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Email</p>
+
+              <a href="mailto:nkverifiedyt@gmail.com" class="contact-link">nkverifiedyt@gmail.com</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="phone-portrait-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Phone</p>
+
+              <a href="unknown" class="contact-link">Not Revealed</a>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="calendar-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Birthday</p>
+
+              <time datetime="Reveal soon">Reveal soon</time>
+            </div>
+
+          </li>
+
+          <li class="contact-item">
+
+            <div class="icon-box">
+              <ion-icon name="location-outline"></ion-icon>
+            </div>
+
+            <div class="contact-info">
+              <p class="contact-title">Current Location</p>
+
+              <address>India</address>
+            </div>
+
+          </li>
+
+        </ul>
+
+        <div class="separator"></div>
+
+        <ul class="social-list">
+
+          <li class="social-item">
+            <a href="https://nkverified.github.io/Nihal-Krishna-web" class="social-link">
+              <ion-icon name="logo-github"></ion-icon>
             </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://t.me/NK_V2_BOT" class="social-link">
+              <ion-icon name="logo-twitter"></ion-icon>
+            </a>
+          </li>
+
+          <li class="social-item">
+            <a href="https://www.instagram.com/n4ni_hal_?igsh=bnBmaGs2N2J5Zm1i" class="social-link">
+              <ion-icon name="logo-instagram"></ion-icon>
+            </a>
+          </li>
+
+        </ul>
+
+      </div>
+
+    </aside>
+
+
+
+
+
+    <!--
+      - #main-content
+    -->
+
+    <div class="main-content">
+
+      <!--
+        - #NAVBAR
+      -->
+
+      <nav class="navbar">
+
+        <ul class="navbar-list">
+
+          <li class="navbar-item">
+            <button class="navbar-link  active" data-nav-link>Home</button>
+          </li>
+
+                 <li class="navbar-item">
+            <a href="contact.html" class="navbar-link" data-nav-link>Contact</a>
+          </li>
+
+ <li class="navbar-item">
+            <a href="link.html" class="navbar-link" data-nav-link>Links</a>
+          </li>
+
+        <li class="navbar-item">
+            <a href="about.html" class="navbar-link" data-nav-link>About</a>
+          </li>
+
+         
+
+        </ul>
+
+      </nav>
+
+
+
+
+
+      <!--
+        - #ABOUT
+      -->
+
+      <article class="about  active" data-page="about">
+
+        <header>
+          <h2 class="h2 article-title">About me</h2>
+        </header>
+
+        <section class="about-text">
+          <p>
+           Hello, I am Nihal Krishna, a passionate programmer from India with extensive expertise across all major programming languages. My journey in technology has been fueled by an insatiable curiosity and a commitment to mastering the art of coding. Whether it's web development, software engineering, automation, or artificial intelligence, I have honed my skills to design, build, and optimize innovative solutions for diverse challenges.
+        </section>
+
+
+        <!--
+          - service
+        -->
+
+        <section class="service">
+
+          <h3 class="h3 service-title">What I'm doing</h3>
+
+          <ul class="service-list">
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-design.svg
+                " alt="design icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Graphic designing</h4>
+
+                <p class="service-item-text">
+                  The most modern and high-quality design made at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
+              </div>     
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Full stack Developer</h4>
+
+                <p class="service-item-text">
+                  High-quality development of website,bots,apps etc. at the professional level.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title"> Technician </h4>
+
+                <p class="service-item-text">
+                  Professional Technician of mobile and other deveices.
+                </p>
+              </div>
+
+            </li>
+
+            <li class="service-item">
+
+              <div class="service-icon-box">
+                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
+              </div>
+
+              <div class="service-content-box">
+                <h4 class="h4 service-item-title">Photography</h4>
+
+                <p class="service-item-text">
+                  I make high-quality photos of any category at a professional level.
+                </p>
+              </div>
+
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials
+        -->
+
+        <section class="testimonials">
+
+          <h3 class="h3 testimonials-title">Testimonials</h3>
+
+          <ul class="testimonials-list has-scrollbar">
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>John</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    Nihal's ability to simplify complex problems is extraordinary. He designed a custom automation tool that saved us hours of manual work.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title> Jessy </h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                   Nihal Krishna is a rare talent who blends technical brilliance with a client-focused approach. His ability to work across various programming languages gives him an edge in delivering innovative and tailored solutions.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title> Andrea </h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                  Nihal developed a chatbot for our business that has significantly improved customer engagement. His understanding of AI and machine learning, combined with his programming expertise, brought the project to life.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+            <li class="testimonials-item">
+              <div class="content-card" data-testimonials-item>
+
+                <figure class="testimonials-avatar-box">
+                  <img src="./assets/images/avatar-4.png" alt="Prabhakar" width="60" data-testimonials-avatar>
+                </figure>
+
+                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
+
+                <div class="testimonials-text" data-testimonials-text>
+                  <p>
+                    In addition to being a skilled programmer, Nihal Krishna is an exceptional graphic designer known for creating visually striking and meaningful designs.
+                  </p>
+                </div>
+
+              </div>
+            </li>
+
+          </ul>
+
+        </section>
+
+
+        <!--
+          - testimonials modal
+        -->
+
+        <div class="modal-container" data-modal-container>
+
+          <div class="overlay" data-overlay></div>
+
+          <section class="testimonials-modal">
+
+            <button class="modal-close-btn" data-modal-close-btn>
+              <ion-icon name="close-outline"></ion-icon>
+            </button>
+
+            <div class="modal-img-wrapper">
+              <figure class="modal-avatar-box">
+                <img src="./assets/images/avatar-1.png" alt="Sumesh" width="80" data-modal-img>
+              </figure>
+
+              <img src="./assets/images/icon-quote.svg" alt="quote icon">
+            </div>
+
+            <div class="modal-content">
+
+              <h4 class="h3 modal-title" data-modal-title>Sumesh</h4>
+
+              <time datetime="2021-06-14">14 June, 2021</time>
+
+              <div data-modal-text>
+                <p>
+                 Nihal Krishna is a phenomenal programmer who exceeded all expectations. He not only delivered the project ahead of schedule but also ensured it was optimized and user-friendly.
+                </p>
+              </div>
+
+            </div>
+
+          </section>
+
         </div>
+
+
+      <!--
+        - #CONTACT
+      -->
+
+      <article class="contact" data-page="contact">
+
+        <header>
+          <h2 class="h2 article-title">Contact</h2>
+        </header>
+
+        <section class="mapbox" data-mapbox>
+          <figure>
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
+              width="400" height="300" loading="lazy"></iframe>
+          </figure>
+        </section>
+
+        <section class="contact-form">
+
+          <h3 class="h3 form-title">Contact Form</h3>
+
+          <form action="#" class="form" data-form>
+
+            <div class="input-wrapper">
+              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
+
+              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
+            </div>
+
+            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
+
+            <button class="form-btn" type="submit" disabled data-form-btn>
+              <ion-icon name="paper-plane"></ion-icon>
+              <span>Send Message</span>
+            </button>
+
+          </form>
+
+        </section>
+
+      </article>
+
     </div>
 
-    <script>
-        // Countdown Timer
-        const targetDate = new Date('2025-04-14T00:00:00').getTime();
-        
-        function updateCountdown() {
-            const now = new Date().getTime();
-            const diff = targetDate - now;
+  </main>
 
-            const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            const seconds = Math.floor((diff % (1000 * 60)) / 1000);
 
-            document.getElementById('cd-days').textContent = String(days).padStart(2, '0');
-            document.getElementById('cd-hours').textContent = String(hours).padStart(2, '0');
-            document.getElementById('cd-minutes').textContent = String(minutes).padStart(2, '0');
-            document.getElementById('cd-seconds').textContent = String(seconds).padStart(2, '0');
 
-            if (diff <= 0) {
-                document.querySelector('.cyber-countdown').innerHTML = 
-                    `<div class="countdown-segment" style="grid-column: 1/-1">
-                        <div class="segment-number">SYSTEM ONLINE</div>
-                    </div>`;
-            }
-        }
-        setInterval(updateCountdown, 1000);
-    </script>
+
+
+
+  <!--
+    - custom js link
+  -->
+  <script src="./script.js"></script>
+
+  <!--
+    - ionicon link
+  -->
+  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+
 </body>
+
 </html>
