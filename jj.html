@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>1000 Responsive Video Grids (9:16)</title>
+  <title>50 Responsive Video Grids (9:16)</title>
   <style>
     * {
       margin: 0;
@@ -11,15 +11,15 @@
     }
     body {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
-      gap: 6px;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 10px;
       background: #000;
-      padding: 6px;
+      padding: 10px;
     }
     .grid-item {
       position: relative;
       width: 100%;
-      padding-bottom: 177.78%; /* 9:16 aspect ratio (16/9 * 100) */
+      padding-bottom: 177.78%; /* 9:16 aspect ratio */
       background: #111;
       overflow: hidden;
     }
@@ -34,7 +34,7 @@
 </head>
 <body>
   <script>
-    const gridCount = 1000;
+    const gridCount = 50;
     const iframeHTML = `
       <iframe 
         src="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fyoutube.com%2Fshorts%2FwH6CZO8mbpE%3Fsi%3DGBF6casuUVab0iwV&key=925108d922be940af814f71907a7df4b&autoplay=1"
