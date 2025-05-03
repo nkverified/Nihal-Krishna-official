@@ -2,30 +2,45 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>50 Responsive Video Grids (9:16)</title>
+  <title>Fast Loading Video Grid</title>
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
     body {
+      margin: 0;
+      padding: 10px;
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
       gap: 10px;
-      background: #000;
-      padding: 10px;
+      background: #1a1a1a;
     }
     .grid-item {
       position: relative;
       width: 100%;
       padding-bottom: 177.78%; /* 9:16 aspect ratio */
-      background: #111;
+      background: #000;
       overflow: hidden;
+      cursor: pointer;
+      border: 1px solid #00f0ff;
+      border-radius: 6px;
     }
-    .grid-item iframe {
+    .thumb {
       position: absolute;
-      top: 0; left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+    .play-icon {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 36px;
+      color: white;
+      opacity: 0.9;
+    }
+    iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
       border: none;
@@ -33,22 +48,35 @@
   </style>
 </head>
 <body>
-  <script>
-    const gridCount = 50;
-    const iframeHTML = `
-      <iframe 
-        src="https://cdn.iframe.ly/api/iframe?url=https%3A%2F%2Fyoutube.com%2Fshorts%2FwH6CZO8mbpE%3Fsi%3DGBF6casuUVab0iwV&key=925108d922be940af814f71907a7df4b&autoplay=1"
-        allowfullscreen
-        allow="autoplay; encrypted-media; picture-in-picture"
-        scrolling="no"
-      ></iframe>`;
 
-    for (let i = 0; i < gridCount; i++) {
-      const div = document.createElement('div');
-      div.className = 'grid-item';
-      div.innerHTML = iframeHTML;
-      document.body.appendChild(div);
-    }
-  </script>
+<script>
+  const videoId = "wH6CZO8mbpE"; // Replace with your video ID or make it dynamic
+  const container = document.body;
+
+  for (let i = 0; i < 50; i++) {
+    const grid = document.createElement("div");
+    grid.className = "grid-item";
+
+    // Thumbnail with play icon
+    grid.innerHTML = `
+      <img class="thumb" src="https://img.youtube.com/vi/${videoId}/hqdefault.jpg" alt="Thumbnail">
+      <div class="play-icon">&#9658;</div>
+    `;
+
+    // Click to replace with iframe
+    grid.onclick = () => {
+      grid.innerHTML = `
+        <iframe 
+          src="https://www.youtube.com/embed/${videoId}?autoplay=1&mute=1&controls=1&playsinline=1"
+          allow="autoplay; encrypted-media; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      `;
+    };
+
+    container.appendChild(grid);
+  }
+</script>
+
 </body>
 </html>
