@@ -1,1 +1,108 @@
-𝐔𝐧𝐝𝐞𝐫 𝐜𝐨𝐧𝐬𝐭𝐫𝐮𝐜𝐭𝐢𝐨𝐧
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Profile Statistics</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css"
+      integrity="sha512-YWzhKL2whUzgiheMoBFwW8CKV4qpHQAEuvilg9FAn5VJUDwKZZxkJNuGM4XkWuk94WCrrwslk8yWNGmY1EduTA=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="stats-container">
+      <i class="fas fa-briefcase fa-3x icon"></i>
+      <div class="counter" data-ceil="15">15</div>
+      <h4>Years Exprerience</h4>
+    </div>
+    <div class="stats-container">
+      <i class="fas fa-cloud fa-3x icon"></i>
+      <div class="counter" data-ceil="260">260</div>
+      <h4>Websites Made</h4>
+    </div>
+    <div class="stats-container">
+      <i class="fab fa-apple fa-3x icon"></i>
+      <div class="counter" data-ceil="27">27</div>
+      <h4>Apps Made</h4>
+    </div>
+    <script src="index.js"></script>
+  </body>
+</html>
+
+<style>
+body {
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  text-align: center;
+  background-color: yellow;
+  font-family: cursive;
+}
+
+.stats-container {
+  margin: 20px;
+  border: dotted green;
+  min-width: 200px;
+  height: 100px;
+  position: relative;
+  padding: 20px;
+}
+
+.stats-container h4 {
+  position: absolute;
+  bottom: 1px;
+  left: 50%;
+  transform: translateX(-50%);
+  white-space: nowrap;
+}
+
+.icon {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
+.counter {
+  font-size: 50px;
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  color: green;
+}
+
+@media (max-width: 600px) {
+  body {
+    flex-direction: column;
+  }
+}
+</style>
+
+<script>
+const countersEl = document.querySelectorAll(".counter");
+
+countersEl.forEach((counterEl) => {
+  counterEl.innerText = "0";
+  incrementCounter();
+  function incrementCounter() {
+    let currentNum = +counterEl.innerText;
+    const dataCeil = counterEl.getAttribute("data-ceil");
+    const increment = dataCeil / 15;
+    currentNum = Math.ceil(currentNum + increment);
+
+    if (currentNum < dataCeil) {
+      counterEl.innerText = currentNum;
+      setTimeout(incrementCounter, 50);
+    } else {
+      counterEl.innerText = dataCeil;
+    }
+  }
+});
+</script>
