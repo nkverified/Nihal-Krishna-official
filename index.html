@@ -231,7 +231,7 @@
         <!-- Timer Grid -->
         <div class="countdown-grid">
             <div class="countdown-item">
-                <span class="countdown-value" id="days">18</span>
+                <span class="countdown-value" id="days">00</span>
                 <span class="countdown-label">Days</span>
             </div>
             <div class="countdown-item">
@@ -291,7 +291,7 @@
         setInterval(drawMatrix, 33);
 
         // Dynamic 24-Hour Countdown Timer Logic
-        const targetTime = new Date().getTime() + (24 * 60 * 60 * 1000); 
+        const targetTime = new Date().getTime() + (72 * 60 * 60 * 1000); 
 
         function updateCountdown() {
             const now = new Date().getTime();
