@@ -1,468 +1,493 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nihal Krishna</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>System Maintenance // Core Offline</title>
+    <style>
+        /* --- CSS COLORS & VARIABLES --- */
+        :root {
+            --bg-dark: #07090e;
+            --terminal-bg: rgba(13, 16, 23, 0.90);
+            --neon-green: #00ff66;
+            --neon-cyan: #00f0ff;
+            --neon-red: #ff3366;
+            --text-muted: #8b949e;
+            --border-color: #30363d;
+        }
 
-  <!--
-    - custom css link
-  -->
-  <link rel="stylesheet" href="./style.css">
+        /* --- LAYOUT RESET --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
 
-  <!--
-    - google font link
-  -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+        body {
+            background-color: var(--bg-dark);
+            font-family: 'Courier New', Courier, monospace;
+            color: #ffffff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            padding: 20px;
+        }
+
+        /* --- ANIMATED MATRIX BACKGROUND --- */
+        #matrix {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.15;
+        }
+
+        /* --- TERMINAL WINDOW CONTAINER --- */
+        .terminal-container {
+            position: relative;
+            z-index: 2;
+            width: 100%;
+            max-width: 650px;
+            background: var(--terminal-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            box-shadow: 0 20px 50px rgba(0, 240, 255, 0.1);
+            backdrop-filter: blur(12px);
+            overflow: hidden;
+            animation: panel-glow 4s infinite alternate;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .terminal-container:active {
+            transform: scale(0.99);
+        }
+
+        /* --- TOP WINDOW HEADER BAR --- */
+        .terminal-header {
+            background: #161b22;
+            padding: 12px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid var(--border-color);
+        }
+
+        .terminal-buttons {
+            display: flex;
+            gap: 8px;
+        }
+
+        .btn {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        .btn.red { background: var(--neon-red); }
+        .btn.yellow { background: #ffb86c; }
+        .btn.green { background: var(--neon-green); }
+
+        .terminal-title {
+            margin-left: 20px;
+            font-size: 0.85rem;
+            color: var(--text-muted);
+            letter-spacing: 1px;
+        }
+
+        /* --- BODY CONTENT CONTENT --- */
+        .terminal-body {
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        /* --- CYBERPUNK GLITCH EFFECT --- */
+        .glitch-wrapper {
+            margin-bottom: 20px;
+        }
+
+        .glitch-text {
+            font-size: 2.2rem;
+            font-weight: bold;
+            color: #fff;
+            letter-spacing: 4px;
+            position: relative;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
+        }
+
+        .glitch-text::before, .glitch-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+        }
+
+        .glitch-text::before {
+            left: 2px;
+            text-shadow: -2px 0 var(--neon-cyan);
+            clip: rect(44px, 450px, 56px, 0);
+            animation: glitch-anim 5s infinite linear alternate-reverse;
+        }
+
+        .glitch-text::after {
+            left: -2px;
+            text-shadow: -2px 0 var(--neon-red);
+            clip: rect(85px, 450px, 140px, 0);
+            animation: glitch-anim 2s infinite linear alternate-reverse;
+        }
+
+        /* --- TEXT AND CONSOLE TERMINAL OUTPUT --- */
+        .clean-message {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+        }
+
+        .console-box {
+            background: #0d1117;
+            border: 1px solid #21262d;
+            border-radius: 4px;
+            padding: 15px;
+            text-align: left;
+            margin-bottom: 25px;
+        }
+
+        .console-line {
+            font-size: 0.9rem;
+            color: #c9d1d9;
+            margin-bottom: 8px;
+            transition: opacity 0.4s ease-in-out;
+        }
+
+        .console-line:last-child {
+            margin-bottom: 0;
+        }
+
+        .prompt {
+            color: var(--neon-cyan);
+            margin-right: 5px;
+        }
+
+        .neon-text {
+            color: var(--neon-green);
+            text-shadow: 0 0 5px rgba(0, 255, 102, 0.4);
+        }
+
+        /* --- COUNTDOWN INTERFACE --- */
+        .countdown-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 25px;
+        }
+
+        .countdown-block {
+            background: rgba(22, 27, 34, 0.6);
+            border: 1px solid #21262d;
+            padding: 10px;
+            border-radius: 4px;
+            min-width: 70px;
+        }
+
+        .countdown-val {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: var(--neon-cyan);
+            text-shadow: 0 0 5px rgba(0, 240, 255, 0.4);
+        }
+
+        .countdown-lbl {
+            font-size: 0.65rem;
+            color: var(--text-muted);
+            text-transform: uppercase;
+            margin-top: 4px;
+            letter-spacing: 0.5px;
+        }
+
+        /* --- VISUAL SCAN PROGRESS BAR --- */
+        .progress-container {
+            width: 100%;
+            background: #161b22;
+            height: 6px;
+            border-radius: 3px;
+            overflow: hidden;
+            margin-bottom: 15px;
+        }
+
+        .progress-bar {
+            width: 45%;
+            height: 100%;
+            background: linear-gradient(90deg, var(--neon-cyan), var(--neon-green));
+            box-shadow: 0 0 8px var(--neon-cyan);
+            border-radius: 3px;
+            animation: progress-loop 2.5s infinite ease-in-out;
+        }
+
+        /* --- BYPASS OVERLAY MODAL --- */
+        .bypass-panel {
+            max-height: 0;
+            overflow: hidden;
+            background: #10141b;
+            border-top: 0 solid var(--border-color);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+            text-align: left;
+            padding: 0 30px;
+        }
+
+        .bypass-panel.active {
+            max-height: 150px;
+            padding: 20px 30px;
+            border-top: 1px solid var(--border-color);
+        }
+
+        .bypass-title {
+            font-size: 0.8rem;
+            color: var(--neon-red);
+            margin-bottom: 10px;
+            letter-spacing: 1px;
+        }
+
+        .bypass-form {
+            display: flex;
+            gap: 10px;
+        }
+
+        .bypass-input {
+            flex: 1;
+            background: #07090e;
+            border: 1px solid var(--border-color);
+            border-radius: 4px;
+            padding: 10px;
+            color: var(--neon-green);
+            font-family: monospace;
+            outline: none;
+        }
+
+        .bypass-input:focus {
+            border-color: var(--neon-cyan);
+        }
+
+        .bypass-btn {
+            background: transparent;
+            border: 1px solid var(--neon-green);
+            color: var(--neon-green);
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-family: monospace;
+            transition: all 0.2s ease;
+        }
+
+        .bypass-btn:hover {
+            background: rgba(0, 255, 102, 0.1);
+            box-shadow: 0 0 10px rgba(0, 255, 102, 0.3);
+        }
+
+        .bypass-msg {
+            font-size: 0.8rem;
+            margin-top: 8px;
+            display: none;
+        }
+
+        /* --- CSS KEYFRAME ANIMATIONS --- */
+        @keyframes panel-glow {
+            0% { box-shadow: 0 20px 50px rgba(0, 240, 255, 0.05); }
+            100% { box-shadow: 0 20px 50px rgba(0, 255, 102, 0.15); }
+        }
+
+        @keyframes glitch-anim {
+            0% { clip: rect(15px, 9999px, 66px, 0); }
+            10% { clip: rect(34px, 9999px, 55px, 0); }
+            20% { clip: rect(85px, 9999px, 5px, 0); }
+            30% { clip: rect(11px, 9999px, 85px, 0); }
+            40% { clip: rect(63px, 9999px, 92px, 0); }
+            50% { clip: rect(49px, 9999px, 102px, 0); }
+            60% { clip: rect(78px, 9999px, 12px, 0); }
+            70% { clip: rect(5px, 9999px, 115px, 0); }
+            80% { clip: rect(122px, 9999px, 45px, 0); }
+            90% { clip: rect(90px, 9999px, 130px, 0); }
+            100% { clip: rect(26px, 9999px, 70px, 0); }
+        }
+
+        @keyframes progress-loop {
+            0% { transform: translateX(-100%); }
+            50% { transform: translateX(130%); }
+            100% { transform: translateX(130%); }
+        }
+
+        /* --- RESPONSIVE MOBILE ADAPTATIONS --- */
+        @media(max-width: 480px) {
+            .terminal-body { padding: 25px 15px; }
+            .glitch-text { font-size: 1.6rem; }
+            .clean-message { font-size: 0.9rem; }
+            .console-line { font-size: 0.8rem; }
+            .countdown-container { gap: 8px; }
+            .countdown-block { min-width: 55px; padding: 6px; }
+            .countdown-val { font-size: 1.1rem; }
+        }
+    </style>
 </head>
-
 <body>
 
-  <!--
-    - #MAIN
-  -->
-
-  <main>
-
-<!--
-      - #SIDEBAR
-    -->
-
-    <aside class="sidebar" data-sidebar>
-
-      <div class="sidebar-info">
-
-        <figure class="avatar-box">
-          <img src="assets/images/my-avatar.png" alt= "Nihal Krishna" width="80">
-        </figure>
-
-        <div class="info-content">
-          <h1 class="name" title="Nihal Krishna">Nihal Krishna</h1>
-
-          <p class="title">Programmer</p>
-        </div>
-
-        <button class="info_more-btn" data-sidebar-btn>
-          <span>Show Contacts</span>
-
-          <ion-icon name="chevron-down"></ion-icon>
-        </button>
-
-      </div>
-
-      <div class="sidebar-info_more">
-
-        <div class="separator"></div>
-
-        <ul class="contacts-list">
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="mail-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Email</p>
-
-              <a href="mailto:nkverifiedyt@gmail.com" class="contact-link">hello.nihalkrishna@gmail.com</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="phone-portrait-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Phone</p>
-
-              <a href="unknown" class="contact-link">Not Revealed</a>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="calendar-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Birthday</p>
-
-              <time datetime="Reveal soon">Reveal soon</time>
-            </div>
-
-          </li>
-
-          <li class="contact-item">
-
-            <div class="icon-box">
-              <ion-icon name="location-outline"></ion-icon>
-            </div>
-
-            <div class="contact-info">
-              <p class="contact-title">Current Location</p>
-
-              <address>India</address>
-            </div>
-
-          </li>
-
-        </ul>
-
-        <div class="separator"></div>
-
-        <ul class="social-list">
-
-     
-          
-          <li class="social-item">
-            <a href="https://www.instagram.com/n1haley" class="social-link">
-              <ion-icon name="logo-instagram"></ion-icon>
-            </a>
-          </li>
-
-        </ul>
-
-      </div>
-
-    </aside>
-
-
-
-
-
-    <!--
-      - #main-content
-    -->
-
-    <div class="main-content">
-
-      <!--
-        - #NAVBAR
-      -->
-
-      <nav class="navbar">
-
-        <ul class="navbar-list">
-
-          <li class="navbar-item">
-            <button class="navbar-link  active" data-nav-link>Home</button>
-          </li>
-
-
-                
-          <li class="navbar-item">
-            <a href="https://nihalkrishna.is-a.dev/project" class="navbar-link" data-nav-link>Works</a>
-          </li> 
-
-<li class="navbar-item">
-            <a href="https://nihalkrishna.is-a.dev/blog" class="navbar-link" data-nav-link>Rate</a>
-          </li> 
-         
-
-        </ul>
-
-      </nav>
-
-
-
-
-
-      <!--
-        - #ABOUT
-      -->
-
-      <article class="about  active" data-page="about">
-
-        <header>
-          <h2 class="h2 article-title">About me</h2>
-        </header>
-
-        <section class="about-text">
-          <p>
-           Hello, I am Nihal Krishna, a passionate programmer from India with extensive expertise across all major programming languages. My journey in technology has been fueled by an insatiable curiosity and a commitment to mastering the art of coding. Whether it's web development, software engineering, automation, or artificial intelligence, I have honed my skills to design, build, and optimize innovative solutions for diverse challenges.
-        </section>
-
-
-        <!--
-          - service
-        -->
-
-        <section class="service">
-
-          <h3 class="h3 service-title">What I'm doing</h3>
-
-          <ul class="service-list">
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-design.svg
-                " alt="design icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Graphic designing</h4>
-
-                <p class="service-item-text">
-                  The most modern and high-quality design made at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-dev.svg" alt="Web development icon" width="40">
-              </div>     
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Full stack Developer</h4>
-
-                <p class="service-item-text">
-                  High-quality development of website,bots,apps etc. at the professional level.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-app.svg" alt="mobile app icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title"> Technician </h4>
-
-                <p class="service-item-text">
-                  Professional Technician of mobile and other deveices.
-                </p>
-              </div>
-
-            </li>
-
-            <li class="service-item">
-
-              <div class="service-icon-box">
-                <img src="./assets/images/icon-photo.svg" alt="camera icon" width="40">
-              </div>
-
-              <div class="service-content-box">
-                <h4 class="h4 service-item-title">Photography</h4>
-
-                <p class="service-item-text">
-                  I make high-quality photos of any category at a professional level.
-                </p>
-              </div>
-
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials
-        -->
-
-        <section class="testimonials">
-
-          <h3 class="h3 testimonials-title">Testimonials</h3>
-
-          <ul class="testimonials-list has-scrollbar">
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-1.png" alt="Daniel lewis" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>John</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    Nihal's ability to simplify complex problems is extraordinary. He designed a custom automation tool that saved us hours of manual work.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-2.png" alt="Jessica miller" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title> Jessy </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                   Nihal Krishna is a rare talent who blends technical brilliance with a client-focused approach. His ability to work across various programming languages gives him an edge in delivering innovative and tailored solutions.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-3.png" alt="Emily evans" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title> Andrea </h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                  Nihal developed a chatbot for our business that has significantly improved customer engagement. His understanding of AI and machine learning, combined with his programming expertise, brought the project to life.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-            <li class="testimonials-item">
-              <div class="content-card" data-testimonials-item>
-
-                <figure class="testimonials-avatar-box">
-                  <img src="./assets/images/avatar-4.png" alt="Prabhakar" width="60" data-testimonials-avatar>
-                </figure>
-
-                <h4 class="h4 testimonials-item-title" data-testimonials-title>Henry william</h4>
-
-                <div class="testimonials-text" data-testimonials-text>
-                  <p>
-                    In addition to being a skilled programmer, Nihal Krishna is an exceptional graphic designer known for creating visually striking and meaningful designs.
-                  </p>
-                </div>
-
-              </div>
-            </li>
-
-          </ul>
-
-        </section>
-
-
-        <!--
-          - testimonials modal
-        -->
-
-        <div class="modal-container" data-modal-container>
-
-          <div class="overlay" data-overlay></div>
-
-          <section class="testimonials-modal">
-
-            <button class="modal-close-btn" data-modal-close-btn>
-              <ion-icon name="close-outline"></ion-icon>
-            </button>
-
-            <div class="modal-img-wrapper">
-              <figure class="modal-avatar-box">
-                <img src="./assets/images/avatar-1.png" alt="Sumesh" width="80" data-modal-img>
-              </figure>
-
-              <img src="./assets/images/icon-quote.svg" alt="quote icon">
-            </div>
-
-            <div class="modal-content">
-
-              <h4 class="h3 modal-title" data-modal-title>Sumesh</h4>
-
-              <time datetime="2021-06-14">14 June, 2021</time>
-
-              <div data-modal-text>
-                <p>
-                 Nihal Krishna is a phenomenal programmer who exceeded all expectations. He not only delivered the project ahead of schedule but also ensured it was optimized and user-friendly.
-                </p>
-              </div>
-
-            </div>
-
-          </section>
-
-        </div>
-
-
-      <!--
-        - #CONTACT
-      -->
-
-      <article class="contact" data-page="contact">
-
-        <header>
-          <h2 class="h2 article-title">Contact</h2>
-        </header>
-
-        <section class="mapbox" data-mapbox>
-          <figure>
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d199666.5651251294!2d-121.58334177520186!3d38.56165006739519!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809ac672b28397f9%3A0x921f6aaa74197fdb!2sSacramento%2C%20CA%2C%20USA!5e0!3m2!1sen!2sbd!4v1647608789441!5m2!1sen!2sbd"
-              width="400" height="300" loading="lazy"></iframe>
-          </figure>
-        </section>
-
-        <section class="contact-form">
-
-          <h3 class="h3 form-title">Contact Form</h3>
-
-          <form action="#" class="form" data-form>
-
-            <div class="input-wrapper">
-              <input type="text" name="fullname" class="form-input" placeholder="Full name" required data-form-input>
-
-              <input type="email" name="email" class="form-input" placeholder="Email address" required data-form-input>
-            </div>
-
-            <textarea name="message" class="form-input" placeholder="Your Message" required data-form-input></textarea>
-
-            <button class="form-btn" type="submit" disabled data-form-btn>
-              <ion-icon name="paper-plane"></ion-icon>
-              <span>Send Message</span>
-            </button>
-
-          </form>
-
-        </section>
-
-      </article>
-
-    </div>
-
-  </main>
-
-
-
-
-
-
-  <!--
-    - custom js link
-  -->
-  <script src="./script.js"></script>
-
-  <!--
-    - ionicon link
-  -->
-  <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
-  <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
-
-</body>
-
-</html>
+    <!-- Background matrix digital code stream -->
+    <canvas id="matrix"></canvas>
+
+    <!-- UI Panel Interface Container -->
+    <main class="terminal-container" id="terminal">
+        <header class="terminal-header">
+            <div class="terminal-buttons">
+                <span class="btn red"></span>
+                <span class="btn yellow"></span>
+
+<script>
+// ============================================================================
+// 1. THE MATRIX DIGITAL RAIN BG EFFECT
+// ============================================================================
+const canvas = document.getElementById('matrix');
+const ctx = canvas.getContext('2d');
+
+function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+}
+resizeCanvas();
+window.addEventListener('resize', resizeCanvas);
+
+const matrixChars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1203456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const alphabet = matrixChars.split('');
+const fontSize = 16;
+let columns = canvas.width / fontSize;
+let rainDrops = Array(Math.floor(columns)).fill(1);
+
+window.addEventListener('resize', () => {
+    columns = canvas.width / fontSize;
+    rainDrops = Array(Math.floor(columns)).fill(1);
+});
+
+function drawMatrix() {
+    ctx.fillStyle = 'rgba(7, 9, 14, 0.05)';
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    ctx.fillStyle = '#00ff66';
+    ctx.font = fontSize + 'px monospace';
+
+    for (let i = 0; i < rainDrops.length; i++) {
+        const text = alphabet[Math.floor(Math.random() * alphabet.length)];
+        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
+
+        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+            rainDrops[i] = 0;
+        }
+        rainDrops[i]++;
+    }
+}
+setInterval(drawMatrix, 30);
+
+
+// ============================================================================
+// 2. LIVE SIMULATED CONSOLE LOG STREAM
+// ============================================================================
+const serverLogs = [
+    "Injecting firewall configuration assets...",
+    "Re-indexing server cluster partitions...",
+    "Flushing database connection caches...",
+    "Optimizing modern API infrastructure...",
+    "Hardening network layer protocols...",
+    "Establishing zero-trust security tunnels..."
+];
+
+const logElement = document.getElementById("log-line");
+let logIndex = 0;
+
+function cycleLogs() {
+    logElement.style.opacity = 0;
+    setTimeout(() => {
+        logElement.textContent = serverLogs[logIndex];
+        logElement.style.opacity = 1;
+        logIndex = (logIndex + 1) % serverLogs.length;
+    }, 400);
+}
+setInterval(cycleLogs, 3500);
+
+
+// ============================================================================
+// 3. AUTOMATED COUNTDOWN ENGINE (48 Hours Target Interval)
+// ============================================================================
+const targetDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000).getTime();
+
+function updateCountdown() {
+    const now = new Date().getTime();
+    const difference = targetDate - now;
+
+    if (difference <= 0) {
+        document.getElementById('days').textContent = "00";
+        document.getElementById('hours').textContent = "00";
+        document.getElementById('minutes').textContent = "00";
+        document.getElementById('seconds').textContent = "00";
+        return;
+    }
+
+    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
+    const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+    const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+    const s = Math.floor((difference % (1000 * 60)) / 1000);
+
+    document.getElementById('days').textContent = d.toString().padStart(2, '0');
+    document.getElementById('hours').textContent = h.toString().padStart(2, '0');
+    document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
+    document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
+}
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
+
+// ============================================================================
+// 4. SECRET PANEL BYPASS VERIFICATION LAYOUT
+// ============================================================================
+const terminal = document.getElementById('terminal');
+const bypassPanel = document.getElementById('bypassPanel');
+const passkeyInput = document.getElementById('passkey');
+const submitBypass = document.getElementById('submitBypass');
+const bypassMsg = document.getElementById('bypassMsg');
+
+// Toggle dropdown panel UI
+terminal.addEventListener('click', (e) => {
+    if(e.target.closest('#bypassPanel')) return; 
+    bypassPanel.classList.toggle('active');
+    if(bypassPanel.classList.contains('active')) {
+        passkeyInput.focus();
+    }
+});
+
+// Passkey verification logic
+function verifyPasskey() {
+    const secretToken = "admin123"; 
+    if(passkeyInput.value === secretToken) {
+        bypassMsg.style.display = "block";
+        bypassMsg.style.color = "var(--neon-green)";
+        bypassMsg.textContent = "ACCESS GRANTED. REDIRECTING...";
+        setTimeout(() => {
+            alert("System bypassed successfully!");
+            // window.location.href = "/dashboard.html"; // Route configuration target
+        }, 1000);
+    } else {
+        bypassMsg.style.display = "block";
+        bypassMsg.style.color = "var(--neon-red)";
+        bypassMsg.textContent = "ERROR: INVALID CREDENTIAL TOKEN.";
+        passkeyInput.value = "";
+    }
+}
+
+submitBypass.addEventListener('click', verifyPasskey);
+passkeyInput.addEventListener('keydown', (e) => {
+    if(e.key === 'Enter') verifyPasskey();
+});
+</script>
