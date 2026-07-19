@@ -1,1 +1,322 @@
-Website on maintainance
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SYSTEM MAINTENANCE // CYBER JINN</title>
+    <style>
+        :root {
+            --bg-color: #050508;
+            --accent-color: #00ffcc;
+            --accent-glow: rgba(0, 255, 204, 0.4);
+            --text-color: #e2e8f0;
+            --muted-color: #64748b;
+            --panel-bg: rgba(10, 11, 18, 0.85);
+            --border-color: rgba(0, 255, 204, 0.2);
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        body, html {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Matrix Particle Canvas */
+        #particleCanvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
+            opacity: 0.25;
+            pointer-events: none;
+        }
+
+        /* Cyber Scanline Effect */
+        .scanlines {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(
+                rgba(18, 16, 16, 0) 50%, 
+                rgba(0, 0, 0, 0.25) 50%
+            ), linear-gradient(
+                90deg,
+                rgba(255, 0, 0, 0.06),
+                rgba(0, 255, 0, 0.02),
+                rgba(0, 0, 255, 0.06)
+            );
+            background-size: 100% 4px, 6px 100%;
+            z-index: 2;
+            pointer-events: none;
+        }
+
+        /* Main Container */
+        .maintenance-container {
+            position: relative;
+            z-index: 3;
+            width: 90%;
+            max-width: 550px;
+            background: var(--panel-bg);
+            border: 1px solid var(--border-color);
+            padding: 40px 30px;
+            text-align: center;
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.7), inset 0 0 15px rgba(0, 255, 204, 0.05);
+            backdrop-filter: blur(10px);
+            border-radius: 4px;
+        }
+
+        /* Futuristic Corners decor */
+        .maintenance-container::before, .maintenance-container::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 12px;
+            border: 2px solid var(--accent-color);
+        }
+        .maintenance-container::before { top: -2px; left: -2px; border-right: 0; border-bottom: 0; }
+        .maintenance-container::after { bottom: -2px; right: -2px; border-left: 0; border-top: 0; }
+
+        /* Title Header */
+        .glitch-wrapper {
+            margin-bottom: 25px;
+        }
+
+        .system-title {
+            font-size: 1.8rem;
+            font-weight: bold;
+            letter-spacing: 4px;
+            color: var(--accent-color);
+            text-shadow: 0 0 10px var(--accent-glow);
+            text-transform: uppercase;
+        }
+
+        .status-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(0, 255, 204, 0.1);
+            border: 1px solid var(--border-color);
+            padding: 6px 14px;
+            font-size: 0.75rem;
+            letter-spacing: 2px;
+            color: var(--accent-color);
+            margin-top: 10px;
+            border-radius: 2px;
+            text-transform: uppercase;
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            background-color: var(--accent-color);
+            border-radius: 50%;
+            box-shadow: 0 0 8px var(--accent-color);
+            animation: pulse 1.5s infinite ease-in-out;
+        }
+
+        /* Description Box */
+        .terminal-text {
+            font-size: 0.9rem;
+            line-height: 1.6;
+            color: var(--text-color);
+            margin-bottom: 30px;
+            border-left: 3px solid var(--border-color);
+            padding-left: 15px;
+            text-align: left;
+        }
+
+        .terminal-prompt {
+            color: var(--accent-color);
+        }
+
+        /* Countdown Grid */
+        .countdown-grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin-bottom: 35px;
+        }
+
+        .countdown-item {
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 12px 5px;
+            border-radius: 2px;
+        }
+
+        .countdown-value {
+            font-size: 1.5rem;
+            font-weight: bold;
+            color: #ffffff;
+            display: block;
+        }
+
+        .countdown-label {
+            font-size: 0.65rem;
+            color: var(--muted-color);
+            letter-spacing: 1px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+
+        /* Footer Info */
+        .version-info {
+            font-size: 0.7rem;
+            color: var(--muted-color);
+            letter-spacing: 1px;
+            display: flex;
+            justify-content: space-between;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            padding-top: 15px;
+        }
+
+        .version-info a {
+            color: var(--accent-color);
+            text-decoration: none;
+        }
+        .version-info a:hover {
+            text-decoration: underline;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 0.4; }
+            50% { opacity: 1; transform: scale(1.2); }
+        }
+
+        @media(max-width: 480px) {
+            .system-title { font-size: 1.4rem; }
+            .countdown-value { font-size: 1.2rem; }
+            .maintenance-container { padding: 30px 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <canvas id="particleCanvas"></canvas>
+    <div class="scanlines"></div>
+
+    <div class="maintenance-container">
+        <div class="glitch-wrapper">
+            <h1 class="system-title">System Locked</h1>
+            <div class="status-badge">
+                <span class="status-dot"></span> Under Maintenance
+            </div>
+        </div>
+
+        <div class="terminal-text">
+            <p><span class="terminal-prompt">root@cyberjinn:~$</span> run system_update.sh</p>
+            <p style="color: var(--muted-color); margin-top: 8px;">
+                Bypassing old core modules... [OK]<br>
+                Upgrading framework architecture... [IN_PROGRESS]<br>
+                Recompiling reality grid matrices. Please stand by.
+            </p>
+        </div>
+
+        <!-- Timer Grid -->
+        <div class="countdown-grid">
+            <div class="countdown-item">
+                <span class="countdown-value" id="days">00</span>
+                <span class="countdown-label">Days</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="hours">00</span>
+                <span class="countdown-label">Hours</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="minutes">00</span>
+                <span class="countdown-label">Mins</span>
+            </div>
+            <div class="countdown-item">
+                <span class="countdown-value" id="seconds">00</span>
+                <span class="countdown-label">Secs</span>
+            </div>
+        </div>
+
+        <div class="version-info">
+            <span>v2.0.3-STABLE</span>
+            <span>BACK SOON BY <a href="#">CYBER JINN</a></span>
+        </div>
+    </div>
+
+    <script>
+        // Matrix Rain Background Animation
+        const canvas = document.getElementById('particleCanvas');
+        const ctx = canvas.getContext('2d');
+
+        function resizeCanvas() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+        }
+        resizeCanvas();
+        window.addEventListener('resize', resizeCanvas);
+
+        const characters = '01'.split('');
+        const fontSize = 14;
+        const columns = canvas.width / fontSize;
+        const drops = Array(Math.floor(columns)).fill(1);
+
+        function drawMatrix() {
+            ctx.fillStyle = 'rgba(5, 5, 8, 0.05)';
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            ctx.fillStyle = '#00ffcc';
+            ctx.font = fontSize + 'px monospace';
+
+            for (let i = 0; i < drops.length; i++) {
+                const text = characters[Math.floor(Math.random() * characters.length)];
+                ctx.fillText(text, i * fontSize, drops[i] * fontSize);
+
+                if (drops[i] * fontSize > canvas.height && Math.random() > 0.975) {
+                    drops[i] = 0;
+                }
+                drops[i]++;
+            }
+        }
+        setInterval(drawMatrix, 33);
+
+        // Dynamic 24-Hour Countdown Timer Logic
+        const targetTime = new Date().getTime() + (24 * 60 * 60 * 1000); 
+
+        function updateCountdown() {
+            const now = new Date().getTime();
+            const difference = targetTime - now;
+
+            if (difference < 0) {
+                document.getElementById('days').innerText = "00";
+                document.getElementById('hours').innerText = "00";
+                document.getElementById('minutes').innerText = "00";
+                document.getElementById('seconds').innerText = "00";
+                return;
+            }
+
+            const days = Math.floor(difference / (1000 * 60 * 60 * 24));
+            const hours = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+            const minutes = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
+            const seconds = Math.floor((difference % (1000 * 60)) / 1000);
+
+            document.getElementById('days').innerText = String(days).padStart(2, '0');
+            document.getElementById('hours').innerText = String(hours).padStart(2, '0');
+            document.getElementById('minutes').innerText = String(minutes).padStart(2, '0');
+            document.getElementById('seconds').innerText = String(seconds).padStart(2, '0');
+        }
+        setInterval(updateCountdown, 1000);
+        updateCountdown();
+    </script>
+</body>
+</html>
