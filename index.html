@@ -99,7 +99,7 @@
             letter-spacing: 1px;
         }
 
-        /* --- BODY CONTENT CONTENT --- */
+        /* --- BODY CONTENT --- */
         .terminal-body {
             padding: 40px 30px;
             text-align: center;
@@ -158,17 +158,24 @@
             padding: 15px;
             text-align: left;
             margin-bottom: 25px;
+            min-height: 110px;
         }
 
         .console-line {
             font-size: 0.9rem;
             color: #c9d1d9;
             margin-bottom: 8px;
-            transition: opacity 0.4s ease-in-out;
         }
 
-        .console-line:last-child {
-            margin-bottom: 0;
+        /* Dynamic Blinking Terminal Cursor */
+        .cursor {
+            display: inline-block;
+            background-color: var(--neon-green);
+            width: 8px;
+            height: 15px;
+            margin-left: 4px;
+            animation: blink 0.8s infinite;
+            vertical-align: middle;
         }
 
         .prompt {
@@ -303,6 +310,11 @@
             100% { box-shadow: 0 20px 50px rgba(0, 255, 102, 0.15); }
         }
 
+        @keyframes blink {
+            0%, 49% { background-color: var(--neon-green); }
+            50%, 100% { background-color: transparent; }
+        }
+
         @keyframes glitch-anim {
             0% { clip: rect(15px, 9999px, 66px, 0); }
             10% { clip: rect(34px, 9999px, 55px, 0); }
@@ -337,157 +349,4 @@
 </head>
 <body>
 
-    <!-- Background matrix digital code stream -->
-    <canvas id="matrix"></canvas>
-
-    <!-- UI Panel Interface Container -->
-    <main class="terminal-container" id="terminal">
-        <header class="terminal-header">
-            <div class="terminal-buttons">
-                <span class="btn red"></span>
-                <span class="btn yellow"></span>
-
-<script>
-// ============================================================================
-// 1. THE MATRIX DIGITAL RAIN BG EFFECT
-// ============================================================================
-const canvas = document.getElementById('matrix');
-const ctx = canvas.getContext('2d');
-
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
-}
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
-
-const matrixChars = 'ｱｲｳｴｵｶｷｸｹｺｻｼｽｾｿﾀﾁﾂﾃﾄﾅﾆﾇﾈﾉﾊﾋﾌﾍﾎﾏﾐﾑﾒﾓﾔﾕﾖﾗﾘﾙﾚﾛﾜﾝ1203456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
-const alphabet = matrixChars.split('');
-const fontSize = 16;
-let columns = canvas.width / fontSize;
-let rainDrops = Array(Math.floor(columns)).fill(1);
-
-window.addEventListener('resize', () => {
-    columns = canvas.width / fontSize;
-    rainDrops = Array(Math.floor(columns)).fill(1);
-});
-
-function drawMatrix() {
-    ctx.fillStyle = 'rgba(7, 9, 14, 0.05)';
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.fillStyle = '#00ff66';
-    ctx.font = fontSize + 'px monospace';
-
-    for (let i = 0; i < rainDrops.length; i++) {
-        const text = alphabet[Math.floor(Math.random() * alphabet.length)];
-        ctx.fillText(text, i * fontSize, rainDrops[i] * fontSize);
-
-        if (rainDrops[i] * fontSize > canvas.height && Math.random() > 0.975) {
-            rainDrops[i] = 0;
-        }
-        rainDrops[i]++;
-    }
-}
-setInterval(drawMatrix, 30);
-
-
-// ============================================================================
-// 2. LIVE SIMULATED CONSOLE LOG STREAM
-// ============================================================================
-const serverLogs = [
-    "Injecting firewall configuration assets...",
-    "Re-indexing server cluster partitions...",
-    "Flushing database connection caches...",
-    "Optimizing modern API infrastructure...",
-    "Hardening network layer protocols...",
-    "Establishing zero-trust security tunnels..."
-];
-
-const logElement = document.getElementById("log-line");
-let logIndex = 0;
-
-function cycleLogs() {
-    logElement.style.opacity = 0;
-    setTimeout(() => {
-        logElement.textContent = serverLogs[logIndex];
-        logElement.style.opacity = 1;
-        logIndex = (logIndex + 1) % serverLogs.length;
-    }, 400);
-}
-setInterval(cycleLogs, 3500);
-
-
-// ============================================================================
-// 3. AUTOMATED COUNTDOWN ENGINE (48 Hours Target Interval)
-// ============================================================================
-const targetDate = new Date(new Date().getTime() + 48 * 60 * 60 * 1000).getTime();
-
-function updateCountdown() {
-    const now = new Date().getTime();
-    const difference = targetDate - now;
-
-    if (difference <= 0) {
-        document.getElementById('days').textContent = "00";
-        document.getElementById('hours').textContent = "00";
-        document.getElementById('minutes').textContent = "00";
-        document.getElementById('seconds').textContent = "00";
-        return;
-    }
-
-    const d = Math.floor(difference / (1000 * 60 * 60 * 24));
-    const h = Math.floor((difference % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-    const m = Math.floor((difference % (1000 * 60 * 60)) / (1000 * 60));
-    const s = Math.floor((difference % (1000 * 60)) / 1000);
-
-    document.getElementById('days').textContent = d.toString().padStart(2, '0');
-    document.getElementById('hours').textContent = h.toString().padStart(2, '0');
-    document.getElementById('minutes').textContent = m.toString().padStart(2, '0');
-    document.getElementById('seconds').textContent = s.toString().padStart(2, '0');
-}
-setInterval(updateCountdown, 1000);
-updateCountdown();
-
-
-// ============================================================================
-// 4. SECRET PANEL BYPASS VERIFICATION LAYOUT
-// ============================================================================
-const terminal = document.getElementById('terminal');
-const bypassPanel = document.getElementById('bypassPanel');
-const passkeyInput = document.getElementById('passkey');
-const submitBypass = document.getElementById('submitBypass');
-const bypassMsg = document.getElementById('bypassMsg');
-
-// Toggle dropdown panel UI
-terminal.addEventListener('click', (e) => {
-    if(e.target.closest('#bypassPanel')) return; 
-    bypassPanel.classList.toggle('active');
-    if(bypassPanel.classList.contains('active')) {
-        passkeyInput.focus();
-    }
-});
-
-// Passkey verification logic
-function verifyPasskey() {
-    const secretToken = "admin123"; 
-    if(passkeyInput.value === secretToken) {
-        bypassMsg.style.display = "block";
-        bypassMsg.style.color = "var(--neon-green)";
-        bypassMsg.textContent = "ACCESS GRANTED. REDIRECTING...";
-        setTimeout(() => {
-            alert("System bypassed successfully!");
-            // window.location.href = "/dashboard.html"; // Route configuration target
-        }, 1000);
-    } else {
-        bypassMsg.style.display = "block";
-        bypassMsg.style.color = "var(--neon-red)";
-        bypassMsg.textContent = "ERROR: INVALID CREDENTIAL TOKEN.";
-        passkeyInput.value = "";
-    }
-}
-
-submitBypass.addEventListener('click', verifyPasskey);
-passkeyInput.addEventListener('keydown', (e) => {
-    if(e.key === 'Enter') verifyPasskey();
-});
-</script>
+<script src="app.js" defer></script>
